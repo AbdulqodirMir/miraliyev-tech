@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdulqodir Miraliyev — Student founder, Almalyk, Tashkent region</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Serif:ital@0;1&family=Onest:wght@400..700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#05060f;--tx:#f5f3ee;--sp:clamp(20px,5vw,72px);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{margin:0;box-sizing:border-box}
+html{background:var(--ink);scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font:400 17px/1.5 'Bricolage Grotesque','Onest',system-ui,sans-serif;color:var(--tx);background:radial-gradient(90% 70% at 70% 30%,#141a55,var(--ink) 70%);overflow-x:hidden}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main{position:relative}
+footer{position:relative;z-index:2}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.serif{font-family:'Instrument Serif','Cormorant Garamond',Georgia,serif;font-weight:400}
+.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:1px solid rgba(255,255,255,.2)}
+header{position:fixed;z-index:6;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) var(--sp) 0;font-size:15px;pointer-events:none}
+header>*{pointer-events:auto}
+#clk{opacity:.75;transition:opacity .3s}
+header nav{display:flex;gap:4px;padding:5px;border-radius:99px}
+header nav a{padding:.45em 1.1em;border-radius:99px;transition:background .25s}
+header nav a:hover{background:rgba(255,255,255,.18)}
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:calc(110px + env(safe-area-inset-top,0px)) var(--sp) 4vh}
+#hero p{max-width:34ch;font-size:clamp(17px,1.7vw,22px);line-height:1.35}
+#hero h1{font-size:clamp(66px,15.6vw,270px);line-height:.82;letter-spacing:-.04em;mix-blend-mode:difference;color:#fff}
+.ln{display:block;overflow:hidden;padding-bottom:.25em}
+.ln:first-child{margin-bottom:-.19em}
+.ln span{display:block;transform:translateY(106%);animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+.ln:nth-child(2) span{animation-delay:.14s}
+@keyframes up{to{transform:none}}
+#work{padding:16vh 0}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:2.4vh var(--sp);border-bottom:1px solid rgba(255,255,255,.16);transition:opacity .3s}
+.row:first-child{border-top:1px solid rgba(255,255,255,.16)}
+.row h3{font-size:clamp(52px,10.5vw,176px);line-height:1;letter-spacing:-.03em;transition:transform .5s cubic-bezier(.2,.8,.2,1);text-shadow:0 0 40px rgba(5,6,15,.55)}
+.row small{font-size:14px;padding:.4em 1em;border-radius:99px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.22);white-space:nowrap}
+.row em{display:none;font-style:normal;opacity:.7;font-size:15px;margin-top:6px}
+@media(hover:hover){.list:hover .row{opacity:.28}.list .row:hover{opacity:1}.row:hover h3{font-style:italic;transform:translateX(1.4vw)}}
+#path{display:grid;grid-template-columns:1fr 1.25fr;gap:5vw;padding:12vh var(--sp);align-items:start}
+#path h2{font-size:clamp(70px,13vw,220px);line-height:.85;letter-spacing:-.04em;position:sticky;top:18vh}
+#path ol{list-style:none;padding:0}
+#path li{display:flex;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.18);transition:padding .4s cubic-bezier(.2,.8,.2,1),background .4s}
+#path li:hover{padding-left:18px;background:linear-gradient(90deg,rgba(255,255,255,.12),transparent)}
+#path li b{display:block;font-weight:600;font-size:18px;line-height:1.25}
+#path li span{opacity:.7;font-size:15px}
+#path li time{white-space:nowrap;opacity:.8;font-size:15px}
+#contact{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:14vh var(--sp)}
+#contact p{max-width:30ch;font-size:clamp(18px,2vw,26px);margin-bottom:2vh;line-height:1.3}
+#contact .mail{font-size:clamp(30px,8.2vw,150px);line-height:1;letter-spacing:-.03em;mix-blend-mode:difference;color:#fff;display:inline-block;overflow-wrap:anywhere}
+#contact .mail:hover{font-style:italic}
+.lk{display:flex;gap:10px;margin-top:5vh;flex-wrap:wrap}
+.lk a{padding:.7em 1.4em;border-radius:99px;transition:background .25s}
+.lk a:hover{background:rgba(255,255,255,.28)}
+.lk a,.mail{transition:background .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+#hero{position:relative}
+.bd{position:absolute;right:var(--sp);bottom:5vh;width:128px;height:128px;animation:spin 20s linear infinite}
+.bd text{font:600 12px 'Bricolage Grotesque','Onest',sans-serif;fill:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+footer{overflow:hidden;padding:22px 0 calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.16)}
+.mq{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq span{display:flex;align-items:center;font:italic 400 clamp(28px,3.2vw,44px)/1 'Instrument Serif','Cormorant Garamond',Georgia,serif;white-space:nowrap}
+.mq span::after{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.5;margin:0 32px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.tip{position:fixed;left:0;top:0;z-index:5;width:270px;padding:16px 18px;border-radius:20px;pointer-events:none;opacity:0;transition:opacity .25s;font-size:15px;line-height:1.4}
+.tip.on{opacity:1}.tip b{display:block;font-size:19px;margin-bottom:4px}
+.cur{position:fixed;left:0;top:0;z-index:9;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;transition:width .3s,height .3s,margin .3s}
+.cur.big{width:56px;height:56px;margin:-28px 0 0 -28px}
+.cur.lbl{width:96px;height:96px;margin:-48px 0 0 -48px;display:grid;place-items:center;font-size:14px;font-weight:600;color:#000}
+@media(hover:none){.cur,.tip{display:none}.row{flex-wrap:wrap}.row em{display:block;width:100%}}
+@media(max-width:800px){.bd{display:none}#path{grid-template-columns:1fr}#path h2{position:static}header nav a{padding:.45em .8em}#clk{display:none}header{justify-content:flex-end}}
+@media(prefers-reduced-motion:reduce){.mq,.bd{animation:none}.ln span{animation:none;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="cur" id="cur"></div>
+<div class="tip glass" id="tip"></div>
+<header><span id="clk"></span><nav class="glass" aria-label="Sections"><a href="#work">Work</a><a href="#path">Path</a><a href="#contact">Contact</a></nav></header>
+<main>
+<section id="hero">
+ <p>Student founder in Almalyk, Tashkent region building products for Uzbekistan and beyond. Computer &amp; Information Engineering at Inha University.</p>
+ <h1 class="serif" aria-label="Abdulqodir Miraliyev"><span class="ln"><span>Abdulqodir</span></span><span class="ln"><span>Miraliyev</span></span></h1>
+ <a class="bd" href="#work" aria-label="Scroll to work"><svg viewBox="0 0 128 128" aria-hidden="true"><defs><path id="ring" d="M64,64 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs><text textLength="296" lengthAdjust="spacing"><textPath href="#ring">scroll &#8226; scroll &#8226; scroll &#8226; scroll &#8226; </textPath></text></svg></a>
+</section>
+<section id="work"><div class="list" id="list"></div></section>
+<section id="path">
+ <h2 class="serif">Path</h2>
+ <ol>
+  <li><div><b>Forward-Deployed AI Implementation Engineer</b><span>Flowlify</span></div><time>Jul 2026</time></li>
+  <li><div><b>Search Quality Improvement Lead</b><span>Yandex Crowd</span></div><time>Jul–Aug 2025</time></li>
+  <li><div><b>B.S. Computer &amp; Information Engineering</b><span>Inha University in Tashkent</span></div><time>2024–2028</time></li>
+  <li><div><b>Videographer</b><span>IQRO Agency, Almalyk</span></div><time>Jul–Aug 2024</time></li>
+  <li><div><b>1st place, national hackathon</b><span>MohirFest22</span></div><time>Award</time></li>
+  <li><div><b>Media Team Lead</b><span>Nurafshon Presidential School</span></div><time>2022–2023</time></li>
+ </ol>
+</section>
+<section id="contact">
+ <p>Got a product, a team or an idea worth shipping? Write to me.</p>
+ <a class="mail serif" href="mailto:abdulqodir@oydin.app">abdulqodir@oydin.app</a>
+ <div class="lk"><a class="glass" href="https://t.me/almali">Telegram</a><a class="glass" href="https://www.linkedin.com/in/miraliyev">LinkedIn</a><a class="glass" href="https://x.com/miraliyev_a">X</a><a class="glass" href="#" id="cpy">Copy email</a></div>
+</section>
+</main>
+<footer><div class="mq" id="mq"></div></footer>
+
+<script>
+// Locale resolution follows the research cascade: URL prefix, then browser languages (Accept-Language equivalent), then a timezone hint, then default.
+// Host it with rewrites so /uz /ru /en all serve this file. No language switcher is shown.
+const LANGS=['uz','ru','en'];
+function detectLang(){
+ const m=location.pathname.match(/^\/(uz|ru|en)(?:\/|$)/);if(m)return m[1];
+ const q=new URLSearchParams(location.search).get('lang');if(LANGS.includes(q))return q;
+ for(const l of (navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''])){const c=String(l).slice(0,2).toLowerCase();if(LANGS.includes(c))return c}
+ const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+ if(/^Asia\/(Tashkent|Samarkand)/.test(tz))return'uz';
+ if(/^(Europe\/(Moscow|Minsk|Samara|Kaliningrad)|Asia\/(Almaty|Aqtobe|Yekaterinburg|Novosibirsk))/.test(tz))return'ru';
+ return'en'}
+const X={
+uz:{title:'Abdulqodir Miraliyev — talaba-asoschi, Olmaliq, Toshkent viloyati',desc:'Abdulqodir Miraliyev — Olmaliqdagi talaba-asoschi. O‘zbekiston va undan tashqarida mahsulotlar yaratadi.',
+nav:['Ishlar','Yo‘l','Aloqa'],navAria:'Bo‘limlar',clk:'Olmaliq, Toshkent viloyati',name:['Abdulqodir','Miraliyev'],
+hero:'Olmaliq (Toshkent viloyati)dagi talaba-asoschi. O‘zbekiston va undan tashqarida mahsulotlar yarataman. Inha universitetida kompyuter va axborot muhandisligi yo‘nalishida o‘qiyman.',
+scroll:'pastga',bdAria:'Ishlarga o‘tish',kinds:['Chrome kengaytmasi','Mahalliy katalog','Ovozli AI','Chiqarish vositasi'],
+desc4:['YouTube videolarini pleylistlarga ajratadi. Sudrab tashlang yoki AI har bir videoni taxminan bir soniyada joyiga qo‘ysin.','Olmaliq va Oydin bozoridagi do‘kon va xizmatlarni toping. Ish vaqtini tekshiring, qo‘shnilar sharhlarini o‘qing va qayerga borishni biling.','Bron va qabul qo‘ng‘iroqlariga javob beradigan ovozli AI agentlar. Ularni joyida joriy etishda qatnashdim.','Buildni uch bosqichdan — build, staging va live — o‘tkazadigan release pipeline.'],
+open:'Ochish',pathH:'Yo‘l',
+path:[['AI joriy etish muhandisi','Flowlify','2026-yil iyul'],['Qidiruv sifati bo‘yicha yetakchi','Yandex Crowd','2025-yil iyul–avgust'],['Bakalavr, kompyuter va axborot muhandisligi','Toshkentdagi Inha universiteti','2024–2028'],['Videograf','IQRO agentligi, Olmaliq','2024-yil iyul–avgust'],['Respublika xakatonida 1-o‘rin','MohirFest22','Mukofot'],['Media jamoasi rahbari','Nurafshon prezident maktabi','2022–2023']],
+contact:'Mahsulot, jamoa yoki chiqarishga arziydigan g‘oyangiz bormi? Menga yozing.',copy:'Emailni nusxalash',copied:'Nusxalandi',
+marq:['AI mahsulot muhandisligi','Chrome va Firefox kengaytmalari','Ovozli AI joriy etish','TypeScript va Next.js','Python va C++','Three.js va WebGL','O‘zbek, ingliz, rus tillari'],
+ui:{ph:'Nima kerak?',q:['kalit yasash','soat ta’mirlash','poyabzal ta’miri','bandaj'],cat:['Xizmatlar','Dorixona'],open:'Ochiq',closed:'Yopiq',m:'m',min:'daq',
+names:[['Kalitsoz Rustam','Tez kalit','Qulf va kalit'],['Soatsoz Akmal','Soat ustaxona','Vaqt servis'],['Etikdo‘z Karim','Poyabzal ustasi','Tez ta’mir'],['Dorixona №3','Sog‘lom apteka','Shifo apteka']]}},
+ru:{title:'Абдулкодир Миралиев — студент-основатель, Алмалык, Ташкентская область',desc:'Абдулкодир Миралиев — студент-основатель из Алмалыка. Создаёт продукты для Узбекистана и не только.',
+nav:['Работы','Путь','Контакты'],navAria:'Разделы',clk:'Алмалык, Ташкентская область',name:['Абдулкодир','Миралиев'],
+hero:'Студент-основатель из Алмалыка (Ташкентская область). Создаю продукты для Узбекистана и не только. Учусь на компьютерной и информационной инженерии в университете Инха.',
+scroll:'вниз',bdAria:'К работам',kinds:['Расширение Chrome','Местный каталог','Голосовой ИИ','Инструмент релизов'],
+desc4:['Раскладывает видео YouTube по плейлистам. Перетащите сами или доверьте ИИ: он отправит каждое видео куда нужно примерно за секунду.','Находите магазины и услуги в Алмалыке и на рынке Ойдин. Проверяйте часы работы, читайте отзывы соседей и знайте, куда идти.','Голосовые ИИ-агенты, которые отвечают на звонки для записи и ресепшена. Я помогал внедрять их на местах.','Релизный конвейер, который проводит сборку через три этапа: сборка, стейджинг и релиз.'],
+open:'Открыть',pathH:'Путь',
+path:[['Инженер по внедрению ИИ','Flowlify','Июль 2026'],['Ведущий по качеству поиска','Yandex Crowd','Июль–авг. 2025'],['Бакалавр, компьютерная и информационная инженерия','Университет Инха в Ташкенте','2024–2028'],['Видеограф','Агентство IQRO, Алмалык','Июль–авг. 2024'],['1 место на национальном хакатоне','MohirFest22','Награда'],['Руководитель медиакоманды','Нурафшанская президентская школа','2022–2023']],
+contact:'Есть продукт, команда или идея, которую стоит выпустить? Напишите мне.',copy:'Скопировать email',copied:'Скопировано',
+marq:['Разработка ИИ-продуктов','Расширения для Chrome и Firefox','Внедрение голосового ИИ','TypeScript и Next.js','Python и C++','Three.js и WebGL','Узбекский, английский, русский'],
+ui:{ph:'Что вам нужно?',q:['дубликат ключа','ремонт часов','ремонт обуви','бинт'],cat:['Услуги','Аптека'],open:'Открыто',closed:'Закрыто',m:'м',min:'мин',
+names:[['Ключи Рустам','Быстрые ключи','Замки и ключи'],['Часовщик Акмаль','Часовая мастерская','Время-сервис'],['Сапожник Карим','Мастер по обуви','Быстрый ремонт'],['Аптека №3','Аптека «Здоровье»','Аптека «Шифо»']]}},
+en:{title:'Abdulqodir Miraliyev — Student founder, Almalyk, Tashkent region',desc:'Abdulqodir Miraliyev is a student founder in Almalyk building products for Uzbekistan and beyond.',
+nav:['Work','Path','Contact'],navAria:'Sections',clk:'Almalyk, Tashkent region',name:['Abdulqodir','Miraliyev'],
+hero:'Student founder in Almalyk, Tashkent region building products for Uzbekistan and beyond. Computer & Information Engineering at Inha University.',
+scroll:'scroll',bdAria:'Scroll to work',kinds:['Chrome extension','Local directory','Voice AI','Launch tool'],
+desc4:['Sorts YouTube videos into playlists. Drag and drop, or let AI file each video in about a second.','Find shops and services in Almalyk and Oydin Bazaar. Check hours, read neighbor reviews, and know where to go.','AI voice agents that answer booking and reception calls. I helped deploy them on-site.','A release pipeline that carries a build through three gates, from build to staging to live.'],
+open:'Open',pathH:'Path',
+path:[['Forward-Deployed AI Implementation Engineer','Flowlify','Jul 2026'],['Search Quality Improvement Lead','Yandex Crowd','Jul–Aug 2025'],['B.S. Computer &amp; Information Engineering','Inha University in Tashkent','2024–2028'],['Videographer','IQRO Agency, Almalyk','Jul–Aug 2024'],['1st place, national hackathon','MohirFest22','Award'],['Media Team Lead','Nurafshon Presidential School','2022–2023']],
+contact:'Got a product, a team or an idea worth shipping? Write to me.',copy:'Copy email',copied:'Copied',
+marq:['AI product engineering','Chrome and Firefox extensions','Voice AI deployment','TypeScript and Next.js','Python and C++','Three.js and WebGL','Uzbek, English, Russian'],
+ui:{ph:'What do you need?',q:['key cutting','watch repair','shoe repair','bandage'],cat:['Services','Pharmacy'],open:'Open',closed:'Closed',m:'m',min:'min',
+names:[['Rustam Locksmith','Quick Keys','Locks & Keys'],['Akmal Watchmaker','Watch Workshop','Vaqt Service'],['Karim Cobbler','Shoe Master','Quick Repair'],['Pharmacy No. 3','Healthy Pharmacy','Shifo Pharmacy']]}}};
+const LANG=detectLang(),LX=X[LANG],$$=(q)=>document.querySelector(q);
+document.documentElement.lang=LANG;document.title=LX.title;
+(document.querySelector('meta[name=description]')||document.head.appendChild(Object.assign(document.createElement('meta'),{name:'description'}))).content=LX.desc;
+[...LANGS,'x-default'].forEach(c=>{const l=document.createElement('link');l.rel='alternate';l.hreflang=c;l.href=location.origin+'/'+(c==='x-default'?'en':c);document.head.appendChild(l)});
+$$('header nav').setAttribute('aria-label',LX.navAria);document.querySelectorAll('header nav a').forEach((a,i)=>a.textContent=LX.nav[i]);
+$$('#hero p').textContent=LX.hero;$$('#hero h1').setAttribute('aria-label',LX.name.join(' '));document.querySelectorAll('#hero .ln span').forEach((e,i)=>e.textContent=LX.name[i]);
+$$('.bd').setAttribute('aria-label',LX.bdAria);$$('.bd textPath').textContent=Array(4).fill(LX.scroll+' \u2022 ').join('');
+$$('#path h2').textContent=LX.pathH;document.querySelectorAll('#path li').forEach((li,i)=>{const r=LX.path[i];li.innerHTML='<div><b>'+r[0]+'</b><span>'+r[1]+'</span></div><time>'+r[2]+'</time>'});
+$$('#contact p').textContent=LX.contact;document.getElementById('cpy').textContent=LX.copy;
+// Hidden test shortcut (Alt+Shift+L) cycles languages through ?lang=. Remove before launch if you prefer.
+addEventListener('keydown',e=>{if(e.altKey&&e.shiftKey&&e.code==='KeyL')location.search='?lang='+LANGS[(LANGS.indexOf(LANG)+1)%3]});
+const W=[
+{n:'Tortma',k:'Chrome extension',d:'Sorts YouTube videos into playlists. Drag and drop, or let AI file each video in about a second.',u:'https://tortma.com'},
+{n:'Oydin',k:'Local directory',d:'Find shops and services in Almalyk and Oydin Bazaar. Check hours, read neighbor reviews, and know where to go.',u:'https://oydin.app'},
+{n:'Flowlify',k:'Voice AI',d:'AI voice agents that answer booking and reception calls. I helped deploy them on-site.',u:'https://flowlifyai.com'},
+{n:'NowShipping',k:'Launch tool',d:'A release pipeline that carries a build through three gates, from build to staging to live.',u:'https://nowshipping2.vercel.app'}];
+W.forEach((w,i)=>{w.k=LX.kinds[i];w.d=LX.desc4[i]});
+const $=id=>document.getElementById(id),list=$('list'),tip=$('tip'),cur=$('cur');
+W.forEach((w,i)=>{const a=document.createElement('a');a.className='row';a.href=w.u;a.target='_blank';a.rel='noopener';
+ a.innerHTML='<div><h3 class="serif">'+w.n+'</h3><em>'+w.d+'</em></div><small>'+w.k+'</small>';
+ a.onmouseenter=()=>{hov=i;tip.innerHTML='<b>'+w.n+'</b>'+w.d;tip.classList.add('on')};
+ a.onmouseleave=()=>{hov=-1;tip.classList.remove('on')};a.onfocus=()=>{hov=i};a.onblur=()=>{hov=-1};list.appendChild(a)});
+const S=LX.marq;
+$('mq').innerHTML=[0,1].map(()=>'<div style="display:flex">'+S.map(s=>'<span>'+s+'</span>').join('')+'</div>').join('');
+const clk=()=>$('clk').textContent=LX.clk+' '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Tashkent',hour:'2-digit',minute:'2-digit'});clk();setInterval(clk,30000);
+
+let hov=-1,px=0,py=0,cx=0,cy=0;
+addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY});
+document.addEventListener('pointerover',e=>{const r=e.target.closest('.row'),a=e.target.closest('a');cur.classList.toggle('big',!!a&&!r);cur.classList.toggle('lbl',!!r);cur.textContent=r?LX.open:''});
+document.querySelectorAll('.lk a,.mail').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.25+'px,'+(e.clientY-r.top-r.height/2)*.25+'px)'});el.addEventListener('pointerleave',()=>el.style.transform='')});
+$('cpy').onclick=e=>{e.preventDefault();const m='abdulqodir@oydin.app',ok=()=>$('cpy').textContent=LX.copied,fb=()=>{const t=document.createElement('textarea');t.value=m;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(_){}t.remove()};try{navigator.clipboard.writeText(m).then(ok,fb)}catch(_){fb()}};
+
+// scene targets: [Ox,Oy,K,Z, sphere,torus,box, hue, A rgb, B rgb]
+const mob=()=>innerWidth<800;
+const T_=(x,y,k,sh,h,A,B,z)=>{const m=mob();return[m?0:x,m?y+.9:y,k,m?6.6:(z||4.6),...sh,h,...A,...B]};
+const HERO=T_(1.15,0,1,[1,0,0],0,[.1,.18,.95],[1,.35,.6]);
+const PRJ=[T_(1.7,0,.55,[1,0,0],.95,[.95,.08,.2],[1,.78,.35]),T_(.98,-.06,.5,[0,0,1],.45,[.025,.58,.56],[1.,.68,.3]),T_(1.35,0,.5,[1,0,0],.68,[.35,.2,1],[.3,.95,.85]),T_(1.15,0,.5,[1,0,0],.1,[.98,.42,.08],[.5,.72,1],6.4)];
+if(mob())PRJ[1][1]=-.1;
+const PATH=T_(1.5,0,.8,[.45,.55,0],.25,[.2,.35,.85],[.85,.92,1]);
+const CON=T_(0,.05,.7,[1,0,0],.02,[1,.28,.4],[1,.82,.5]);
+let s=HERO.slice();s[2]=0;
+
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+try{
+const cv=$('gl'),gl=cv.getContext('webgl');
+const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+const fs=`precision highp float;
+uniform vec2 R,O,M;uniform float T,K,Z,H,V,Wt,OW,MI,OD,FW,NW;uniform vec4 WS;uniform vec3 SH,A,B;uniform sampler2D UI;
+mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
+float smin(float a,float b,float k){float h=max(k-abs(a-b),0.)/k;return min(a,b)-h*h*k*.25;}
+float dT(vec3 p){
+ float ph=fract(T/6.),k=mod(floor(T/6.),3.),e=(ph-.45)*7.,pulse=exp(-e*e);
+ float d=length(p)-(.62+.1*pulse+.02*sin(T*2.));
+ vec3 Sx=vec3(-1.2,.05,0.);
+ d=smin(d,length(p-Sx)-.24,.35);
+ float a=smoothstep(.1,.4,ph),b=smoothstep(.5,.86,ph);
+ vec3 pa=mix(Sx,vec3(0.),a)+vec3(0.,sin(3.1416*a)*.15,0.);
+ d=smin(d,length(p-pa)-.26*smoothstep(0.,.08,ph)*(1.-smoothstep(.36,.46,ph)),.4);
+ vec3 Pk=vec3(1.15,.85-k*.85,0.);
+ vec3 pb=mix(vec3(0.),Pk,b)+vec3(0.,sin(3.1416*b)*.15,0.);
+ d=smin(d,length(p-pb)-.24*smoothstep(.44,.54,ph)*(1.-smoothstep(.88,.97,ph)),.4);
+ for(int i=0;i<3;i++){float fi=float(i);float land=(fi==k)?smoothstep(.82,.9,ph)*(1.-smoothstep(.93,1.,ph)):0.;d=smin(d,length(p-vec3(1.15,.85-fi*.85,0.))-.26-.16*land,.3);}
+ return d;}
+vec3 cityRotation(vec3 p){p.xy*=rot(-.04+sin(T*.43)*.11+M.x*.06);p.yz*=rot(-.38+sin(T*.31)*.10-M.y*.08);p.xz*=rot(-.64+sin(T*.27)*.36+sin(T*.9)*.05+M.x*.18);return p;}
+// Flowlify: a voice orb. Ripples run in from the caller side, then from the agent side, then a booking pulse. 8 s loop.
+float dO(vec3 p){
+ float ph=fract(T/8.);
+ float ring=smoothstep(0.,.04,ph)*(1.-smoothstep(.18,.22,ph)),cs=smoothstep(.2,.26,ph)*(1.-smoothstep(.48,.52,ph)),ag=smoothstep(.5,.56,ph)*(1.-smoothstep(.72,.76,ph)),bk=smoothstep(.76,.8,ph)*(1.-smoothstep(.88,.96,ph));
+ vec3 n=normalize(p+1e-4);
+ float a1=acos(clamp(dot(n,vec3(-1.,0.,0.)),-1.,1.)),a2=acos(clamp(dot(n,vec3(1.,0.,0.)),-1.,1.));
+ float w=cs*.075*sin(a1*9.-T*13.)*exp(-a1*.55)*(.6+.4*sin(T*8.))+ag*.07*sin(a2*8.-T*11.)*exp(-a2*.55)*(.6+.4*sin(T*7.));
+ w+=ring*.04*sin(T*24.)+.02*sin(T*1.5)+.08*bk;
+ return length(p)-(.95+w);}
+// NowShipping: a release capsule passes three gates (build, staging, live), then launches.
+float dN(vec3 p){
+ float ph=fract(T/8.);
+ p.xz*=rot(.7);p.yz*=rot(.18);
+ float a=smoothstep(.08,.28,ph),b=smoothstep(.38,.5,ph),c2=smoothstep(.6,.72,ph),l=smoothstep(.8,.95,ph);
+ float cx=-1.7+a*.8+b*.9+c2*.9+l*1.8,sp=a*(1.-a)+b*(1.-b)+c2*(1.-c2)+2.*l*(1.-l),hl=.1+1.2*sp,pu=0.,d=1e5;
+ for(int i=0;i<3;i++){float fi=float(i),gx=(fi-1.)*.9,gp=.33+.215*fi,e=(ph-gp)*28.,pl=exp(-e*e);
+  float ps=smoothstep(gp-.02,gp+.03,ph)*(1.-smoothstep(.95,.99,ph));
+  pu+=pl;d=min(d,length(vec2(length(p.yz)-(.62+.06*pl),p.x-gx))-(.045+.035*ps+.07*pl));}
+ float ps3=smoothstep(.74,.79,ph)*(1.-smoothstep(.95,.99,ph));
+ d=min(d,length(vec2(length(p.yz)-.82,p.x-.9))-.03*ps3);
+ vec3 pa=p-vec3(cx,0.,0.);pa.x-=clamp(pa.x,-hl,hl);
+ float rad=.24*(1.-.18*pu)*smoothstep(0.,.08,ph)*(1.-smoothstep(.95,.98,ph));
+ return min(d,length(pa)-rad);}
+float map(vec3 p0){
+ vec3 p=p0;p.xy-=O;p.y/=1.+V*.9*(1.-OD);p.x+=sin(p.y*2.+T*3.)*V*.15*(1.-OD);p.y-=sin(T*.8)*.05*OD;float d=1e5;
+ vec2 dm=p.xy-M;float mf=MI*exp(-dot(dm,dm)*2.5);p.xy+=dm*mf*.3*(1.-OD);
+ for(int i=0;i<5;i++){float f=float(i);
+  vec3 c=vec3(sin(T*.5+f*1.7)*1.5,cos(T*.4+f*2.3)*1.1,sin(T*.6+f*3.1)*.8)*K*(.55+K);
+  d=smin(d,length(p-c)-(.58-.05*f),.4);}
+ vec3 q=p;q.xz*=rot(T*.3);q.xy*=rot(.9+sin(T*.2)*.3);
+ float tor=length(vec2(length(q.xz)-1.3,q.y))-.42;
+ float bs=mix(1.55,R.x/R.y<.8?1.5:.92,OD);
+ vec3 b=p*bs;vec3 oldBox=b;oldBox.xy*=rot(T*.18);oldBox.yz*=rot(.35+sin(T*.2)*.18);b=mix(oldBox,cityRotation(b),OD);
+ float corner=mix(.25,.30+.014*sin(T*.8),OD);
+ vec3 w=abs(b)-vec3(.8-corner);float rb=length(max(w,0.))+min(max(w.x,max(w.y,w.z)),0.)-corner;
+ float pk=(mod(T*.5,3.)-1.5)*1.15;
+ rb=mix(smin(rb,length(b-vec3(pk,0.,0.))-.12,.2),rb,OD);
+ for(int gi=0;gi<3;gi++){float gf=float(gi);vec2 qd=abs(b.yz)-vec2(1.);
+  float ring=length(max(qd,0.))+min(max(qd.x,qd.y),0.)-.04;
+  rb=mix(smin(rb,length(vec2(ring,b.x+1.15-gf*1.15))-.05,.1),rb,OD);}
+ if(FW>.001)d=mix(d,dO(p),FW);if(NW>.001)d=mix(d,dN(p),NW);return d*SH.x+tor*SH.y+rb/bs*SH.z;}
+float sdb(vec2 p,vec2 b,float r){vec2 d=abs(p)-b+r;return length(max(d,0.))+min(max(d.x,d.y),0.)-r;}
+float tri(vec2 q){return max(-.5-q.x,max(dot(q-vec2(-.5,.6),vec2(.447,.894)),dot(q-vec2(-.5,-.6),vec2(.447,-.894))));}
+vec3 vid(vec2 p,float sc,vec3 tint,float a){if(sc<.01)return vec3(0.);vec2 s=p/sc;float m=smoothstep(.006,0.,sdb(s,vec2(.2,.115),.02));float tp=smoothstep(.01,0.,tri(s/.07));float bar=smoothstep(.004,0.,sdb(s-vec2(-.04,-.16),vec2(.14,.01),.004));return a*(tint*m*(1.-.85*tp)+tint*.6*bar);}
+vec3 W1(vec3 r){
+ vec2 q=r.xy/(1.+r.z+1e-3)*1.1;
+ float ph=fract(T/6.),k=mod(floor(T/6.),3.);
+ vec3 c=vec3(0.),fc=mix(A,B,k*.5)*1.7;
+ vec2 S=vec2(-.7,.05),M=vec2(0.),F=vec2(.72,.42-k*.42);
+ for(int i=0;i<3;i++){float fi=float(i);vec2 fp=vec2(.72,.42-fi*.42);vec3 col=mix(A,B,fi*.5);float d=sdb(q-fp,vec2(.2,.1),.03);float land=(fi==k)?smoothstep(.82,.9,ph)*(1.-smoothstep(.93,1.,ph)):0.;
+  c+=smoothstep(.01,0.,d)*col*(.5+1.5*land)+smoothstep(.012,0.,abs(d))*col*1.4;c+=smoothstep(.004,0.,sdb(q-fp-vec2(-.08,.03),vec2(.09,.012),.004))*.7;}
+ c+=vid(q-S-vec2(0.,-.36),.8,vec3(.9),.28)+vid(q-S-vec2(0.,-.66),.7,vec3(.9),.14);
+ float e=(ph-.45)*7.,pulse=exp(-e*e);
+ c+=smoothstep(.014,0.,abs(length(q-M)-.24))*vec3(1.,.97,.92)*(.35+1.5*pulse)+smoothstep(.24,0.,length(q-M))*pulse*.35*B;
+ float a=smoothstep(.12,.45,ph),b=smoothstep(.55,.86,ph);
+ vec2 cp=mix(mix(S,M,a),F,b)+vec2(0.,sin(3.1416*a)*.1+sin(3.1416*b)*.08);
+ float sc=smoothstep(0.,.08,ph)*(1.-smoothstep(.9,.97,ph));
+ c+=vid(q-cp,sc,mix(vec3(.92),fc,smoothstep(.42,.5,ph)),1.);
+ float dr=smoothstep(.1,.16,ph)*(1.-smoothstep(.84,.9,ph));
+ c+=dr*smoothstep(.022,.016,length(q-cp-vec2(.06,-.03)*sc));
+ return c;}
+// A real miniature scene refracted through the cube, with streets on its floor.
+float ink(float d,float w){return 1.-smoothstep(w,w+.007,d);}
+float box3(vec3 p,vec3 b){vec3 q=abs(p)-b;return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.);}
+vec2 route(float t){return vec2(-.51+.89*t,.57-.30*sin(t*3.141593));}
+vec2 shopPosition(int i){
+ if(i==0)return vec2(-.39,.27);
+ if(i==1)return vec2(-.38,-.22);
+ if(i==2)return vec2(.37,-.35);
+ return vec2(.38,.36);
+}
+vec2 cityDistance(vec3 p){
+ vec2 hit=vec2(p.y+.36,0.);
+ for(int i=0;i<4;i++){
+  vec2 sp=shopPosition(i);vec3 q=p-vec3(sp.x,-.20,sp.y);
+  float body=box3(q,vec3(.115,.16,.095))-.008;
+  float roof=box3(q-vec3(0.,.175,.015),vec3(.137,.025,.125))-.009;
+  float awning=box3(q-vec3(0.,.11,.121),vec3(.137,.026,.044))-.009;
+  float d=min(body,min(roof,awning));
+  if(d<hit.x)hit=vec2(d,float(i)+1.);
+ }
+ // A small extruded location marker floats above the destination.
+ vec3 q=p-vec3(.38,.22,.36);q.xz*=rot(-.25);
+ float head=length(q.xy)-.073;
+ float tip=max(abs(q.x)-.48*(q.y+.15),max(-q.y-.15,q.y));
+ float pin=max(min(head,tip),-length(q.xy)+.029);
+ pin=max(pin,abs(q.z)-.018);
+ if(pin<hit.x)hit=vec2(pin,5.);
+ return hit;
+}
+vec3 cityNormal(vec3 p){vec2 e=vec2(.002,0.);return normalize(vec3(cityDistance(p+e.xyy).x-cityDistance(p-e.xyy).x,cityDistance(p+e.yxy).x-cityDistance(p-e.yxy).x,cityDistance(p+e.yyx).x-cityDistance(p-e.yyx).x));}
+vec3 cityFloor(vec2 q){
+ vec3 teal=vec3(.04,.25,.23),gold=vec3(1.,.69,.28);
+ float roads=min(min(abs(q.x+.13),abs(q.x-.13)),min(abs(q.y+.1),abs(q.y-.13)));
+ vec3 color=vec3(.025,.10,.095)+ink(roads,.009)*teal*.7;
+ float phase=mod(T,8.),progress=smoothstep(.35,3.5,phase),fade=1.-smoothstep(7.3,8.,phase);
+ float d=10.;
+ for(int j=0;j<24;j++){
+  float f=float(j)/24.;vec2 a=route(min(f,progress)),b=route(min(f+1./24.,progress)),v=b-a;
+  d=min(d,length(q-a-v*clamp(dot(q-a,v)/max(dot(v,v),.000001),0.,1.)));
+ }
+ color+=gold*(ink(d,.014)*1.6+exp(-d*32.)*.32)*fade;
+ color+=gold*ink(length(q-route(0.)),.032)*fade;
+ color+=vec3(1.,.9,.65)*ink(length(q-route(progress)),.023)*fade;
+ return color;
+}
+vec3 cityRender(vec3 origin,vec3 direction){
+ float travel=.035;vec2 h=vec2(0.);vec3 p=origin;
+ bool found=false;
+ for(int i=0;i<52;i++){
+  p=origin+direction*travel;
+  if(max(abs(p.x),max(abs(p.y),abs(p.z)))>.84)break;
+  h=cityDistance(p);
+  if(h.x<.002){found=true;break;}
+  travel+=max(h.x*.82,.003);
+ }
+ if(!found)return vec3(.025,.09,.095);
+ if(h.y<.5)return cityFloor(p.xz);
+ vec3 normal=cityNormal(p),light=normalize(vec3(-.4,1.,1.5));
+ float diffuse=.32+.68*max(dot(normal,light),0.);
+ vec3 base=vec3(.055,.37,.33);
+ if(h.y>3.5)base=vec3(.9,.57,.22);
+ if(h.y>4.5)return vec3(1.,.77,.36)*1.6;
+ vec2 sp=shopPosition(int(h.y)-1);vec3 q=p-vec3(sp.x,-.20,sp.y);
+ // Roofs, alternating awning fabric, and recessed warm windows give each shop depth.
+ if(q.y>.155)base=mix(base,vec3(.55,.69,.61),.5);
+ if(q.z>.105&&q.y>.075&&q.y<.145)base*=.55+.45*step(0.,sin(q.x*95.));
+ float window=ink(abs(q.x)-.067,0.)*ink(abs(q.y+.015)-.064,0.)*smoothstep(.088,.1,q.z);
+ base=mix(base,vec3(1.,.67,.27)*1.3,window);
+ return base*diffuse;
+}
+float sdSeg(vec2 p,vec2 a,vec2 b){vec2 v=b-a;return length(p-a-v*clamp(dot(p-a,v)/max(dot(v,v),1e-5),0.,1.));}
+// Oydin story: a need is typed, the nearest matching place lights up, a route walks to it. 8 s per need.
+vec2 pn(float k,float i){
+ vec2 a=k<.5?vec2(.3,-.3):k<1.5?vec2(-.3,0.):k<2.5?vec2(0.,0.):vec2(-.3,-.6);
+ vec2 b=k<.5?vec2(-.3,.3):k<1.5?vec2(.3,.3):k<2.5?vec2(-.6,-.3):vec2(.6,0.);
+ vec2 c=k<.5?vec2(.6,.3):k<1.5?vec2(-.6,.6):k<2.5?vec2(.6,.3):vec2(-.3,.6);
+ return i<.5?a:i<1.5?b:c;}
+// need icons: key, watch, boot, bandage cross
+float gly(vec2 p,float k){
+ float key=min(abs(length(p-vec2(-.5,0.))-.32)-.1,min(sdb(p-vec2(.3,0.),vec2(.6,.07),0.),sdb(p-vec2(.55,-.17),vec2(.06,.14),0.)));
+ float wat=min(abs(length(p)-.62)-.09,min(sdSeg(p,vec2(0.),vec2(0.,.4))-.07,sdSeg(p,vec2(0.),vec2(.3,0.))-.07));
+ float boo=min(sdb(p-vec2(-.15,.15),vec2(.28,.62),.05),sdb(p-vec2(.15,-.45),vec2(.65,.22),.08));
+ float ban=min(sdb(p,vec2(.64,.2),.04),sdb(p,vec2(.2,.64),.04));
+ return k<.5?key:k<1.5?wat:k<2.5?boo:ban;}
+vec2 rp(vec2 Y,vec2 N,float u){float L1=abs(N.x),d=u*(L1+abs(N.y-Y.y));return d<L1?Y+vec2(sign(N.x)*d,0.):vec2(N.x,Y.y+sign(N.y-Y.y)*(d-L1));}
+// Overview with radar, then a follow-cam walk along the streets to the nearest shop.
+vec3 oMap(vec2 q){
+ float ph=fract(T/8.),k=mod(floor(T/8.),4.);
+ vec3 gold=vec3(1.,.69,.28),c=vec3(.02,.08,.08);
+ vec2 Y=vec2(0.,-.3),N=pn(k,0.);
+ float sj=smoothstep(.42,.55,ph),u=smoothstep(.55,.82,ph),fade=1.-smoothstep(.93,1.,ph),zz=mix(1.,2.4,sj);
+ vec2 tp=rp(Y,N,u),w=q/zz+tp*sj;
+ vec2 cq=mod(w,.3)-.15,id=floor(w/.3);
+ float hh=fract(sin(dot(id,vec2(12.9,78.2)))*43758.5);
+ c=mix(c,vec3(.01,.05,.05),smoothstep(.006,0.,sdb(cq-vec2(.012,-.016),vec2(.11),.025)));
+ c=mix(c,mix(vec3(.05,.3,.28),vec3(.09,.42,.36),hh),smoothstep(.006,0.,sdb(cq,vec2(.11),.025)));
+ c=mix(c,vec3(.04,.2,.18),smoothstep(.004,0.,sdb(cq,vec2(.05),.01))*step(.5,hh));
+ float ra=smoothstep(.15,.5,ph),rr=ra*1.2,sel=smoothstep(.52,.6,ph);
+ for(int i=0;i<4;i++){float fi=float(i);vec2 dp=fi<.5?vec2(.6,-.6):fi<1.5?vec2(.3,.6):fi<2.5?vec2(-.6,0.):vec2(.3,0.);
+  c=mix(c,vec3(.4,.65,.6),smoothstep(.01,0.,length(w-dp)-.026*smoothstep(.06+.03*fi,.12+.03*fi,ph))*(1.-.6*sel));}
+ for(int i=0;i<3;i++){float fi=float(i);vec2 pp=pn(k,fi);float dist=length(pp-Y);
+  float pop=smoothstep(.08+.03*fi,.15+.03*fi,ph),lit=smoothstep(dist-.02,dist+.04,rr);
+  float isN=fi<.5?1.:0.,rad=(.05+.04*isN*sel)*pop,dim=1.-.65*sel*(1.-isN);
+  float disc=smoothstep(.008,0.,length(w-pp)-rad);
+  c=mix(c,mix(vec3(.55,.95,.88),gold*1.4,lit)*dim,disc);
+  c=mix(c,vec3(.03,.1,.1),smoothstep(.006,0.,gly((w-pp)/(rad*.62+1e-4),k)*rad*.62)*disc*step(.01,pop));}
+ c+=gold*smoothstep(.012,0.,abs(length(w-Y)-rr))*(1.-ra)*(1.-sj)*1.2*step(.001,ra);
+ float L1=abs(N.x),cu=u*(L1+abs(N.y-Y.y)),C2=Y.y;
+ float dF=min(sdSeg(w,Y,vec2(N.x,C2)),sdSeg(w,vec2(N.x,C2),N));
+ float dT=min(sdSeg(w,Y,Y+vec2(sign(N.x)*min(cu,L1),0.)),sdSeg(w,vec2(N.x,C2),vec2(N.x,C2+sign(N.y-C2)*max(cu-L1,0.))));
+ c+=gold*(smoothstep(.014,.007,dF*zz)*.35*sj+(smoothstep(.02,.01,dT*zz)*1.7+exp(-dT*zz*26.)*.3)*step(.001,u));
+ vec2 hd=normalize(rp(Y,N,min(u+.04,1.))-rp(Y,N,max(u-.01,0.))+vec2(1e-4,0.)),rl=w-tp;
+ float ah=dot(rl,hd),pe=abs(dot(rl,vec2(-hd.y,hd.x)));
+ c+=vec3(.9)*smoothstep(.01,0.,max(pe-(.14-ah)*.4,max(.03-ah,ah-.14)))*.6*sj;
+ c+=exp(-length(rl)*12.)*vec3(.6,.9,1.)*.5+vec3(1.)*smoothstep(.008,0.,length(rl)-.035);
+ float ar=smoothstep(.82,.83,ph)*(1.-smoothstep(.9,.95,ph));
+ c+=gold*smoothstep(.012,0.,abs(length(w-N)-(.07+max(ph-.82,0.)*1.2)))*ar*1.3;
+ c+=vec3(.3,1.,.5)*smoothstep(.024,.016,length(w-N-vec2(.075,.075)))*smoothstep(.82,.84,ph);
+ return c*(.4+.6*fade);}
+vec3 oCard(vec2 q){return texture2D(UI,vec2(q.x/1.2+.5,.5-q.y/1.2)).rgb;}
+// Flowlify reflection: ringing call, caller and agent waveforms, then a calendar slot books.
+vec3 W2(vec3 r){
+ vec2 q=r.xy/(1.+r.z+1e-3)*1.1;
+ float ph=fract(T/8.),k=mod(floor(T/8.),4.);
+ vec3 c=vec3(0.),gold=vec3(1.,.8,.4),teal=mix(A,B,.7)*1.9;
+ float ring=smoothstep(0.,.04,ph)*(1.-smoothstep(.18,.22,ph)),cs=smoothstep(.2,.26,ph)*(1.-smoothstep(.48,.52,ph)),ag=smoothstep(.5,.56,ph)*(1.-smoothstep(.72,.76,ph)),bk=smoothstep(.76,.82,ph),fade=1.-smoothstep(.95,1.,ph);
+ vec2 hc=vec2(0.,.42);float dd=length(q-hc);
+ for(int i=0;i<3;i++){float f=fract(T*.8+float(i)/3.);c+=gold*smoothstep(.012,0.,abs(dd-(.1+f*.42)))*(1.-f)*ring*1.6;}
+ c+=smoothstep(.01,0.,dd-.09)*mix(vec3(1.),vec3(.3,1.,.5),smoothstep(.2,.26,ph));
+ for(int i=0;i<9;i++){float fi=float(i);
+  float hl=(.03+.13*abs(sin(T*9.+fi*1.9)))*cs+.012,hr=(.03+.13*abs(sin(T*8.+fi*2.3)))*ag+.012;
+  c+=smoothstep(.006,0.,sdb(q-vec2(-.66+fi*.05,.42),vec2(.016,hl),.016))*vec3(.95,.97,1.)*(.5+.9*cs);
+  c+=smoothstep(.006,0.,sdb(q-vec2(.2+fi*.05,.42),vec2(.016,hr),.016))*teal*(.5+.9*ag);}
+ float tx=k<.5?4.:k<1.5?2.:k<2.5?5.:1.,ty=k<.5?1.:k<1.5?0.:k<2.5?2.:1.;
+ for(int j=0;j<3;j++)for(int i=0;i<7;i++){float fi=float(i),fj=float(j);
+  vec2 cc=vec2(-.3+fi*.1,-.02-fj*.1),tq=q-cc;float tg=(fi==tx&&fj==ty)?1.:0.;
+  c+=smoothstep(.006,0.,sdb(tq,vec2(.036*(1.+.25*tg*bk)),.012))*mix(vec3(.16),gold*1.7,tg*bk);
+  float tk=smoothstep(.012,.006,min(sdSeg(tq,vec2(-.02,0.),vec2(-.006,-.014)),sdSeg(tq,vec2(-.006,-.014),vec2(.02,.018))));
+  c=mix(c,vec3(.05,.08,.2),tk*tg*bk);}
+ return c*fade;}
+// NowShipping reflection: a three-step pipeline. Each step spins, then ticks; the last one goes live.
+vec3 W3(vec3 r){
+ vec2 q=r.xy/(1.+r.z+1e-3)*1.1;
+ float ph=fract(T/8.);
+ vec3 c=vec3(0.),hot=A*2.,cool=B*1.7,wh=vec3(.95,.97,1.);
+ float b=smoothstep(.38,.5,ph),c2=smoothstep(.6,.72,ph),fx=-.55+.55*b+.55*c2,fade=1.-smoothstep(.95,1.,ph);
+ c+=smoothstep(.006,0.,sdb(q,vec2(.55,.012),.012))*wh*.25;
+ c+=smoothstep(.006,0.,sdb(q-vec2((fx-.55)*.5,0.),vec2((fx+.55)*.5,.012),.012))*hot;
+ for(int i=0;i<3;i++){float fi=float(i),gp=.33+.215*fi,e=(ph-gp)*28.,pl=exp(-e*e);
+  vec2 cp=vec2(-.55+.55*fi,0.),tq=q-cp;float dd=length(tq);
+  float ps=smoothstep(gp-.02,gp+.03,ph)*(1.-smoothstep(.95,.99,ph));
+  c+=smoothstep(.012,0.,abs(dd-.12))*wh*.45*(1.-ps);
+  c+=smoothstep(.012,0.,abs(dd-.12))*step(0.,sin(atan(tq.y,tq.x)*2.+T*9.))*hot*pl*1.5;
+  c+=smoothstep(.008,0.,dd-.12)*ps*(i==2?cool:wh*.9);
+  float tk=smoothstep(.014,.008,min(sdSeg(tq,vec2(-.045,-.003),vec2(-.012,-.036)),sdSeg(tq,vec2(-.012,-.036),vec2(.05,.04))));
+  c=mix(c,vec3(.04,.06,.14),tk*ps);}
+ vec2 n3=vec2(.55,0.);float d3=length(q-n3);
+ c+=cool*smoothstep(.012,0.,abs(d3-(.14+max(ph-.76,0.)*1.1)))*smoothstep(.76,.78,ph)*(1.-smoothstep(.85,.95,ph));
+ for(int i=0;i<3;i++){float fi=float(i),pr=smoothstep(.1+.2*fi,.3+.2*fi,ph),L=(.28+.22*sin(fi*2.1+1.))*pr;
+  c+=smoothstep(.006,0.,sdb(q-vec2(-.55+L*.5,-.36-.1*fi),vec2(L*.5,.012),.01))*wh*.35;}
+ return c*fade;}
+vec3 E(vec3 r){vec3 c=mix(A*.08,B*.2,smoothstep(-.3,1.,r.y));c+=smoothstep(.9,.93,dot(r,normalize(vec3(.4,.8,.5))))*vec3(1.,.97,.92)*2.6;c+=smoothstep(.85,.88,dot(r,normalize(vec3(-.8,.1,.5))))*B*1.7;c+=smoothstep(.9,.92,sin(r.y*5.+r.x*1.5))*.28*mix(vec3(1.),B,.5);c+=smoothstep(.8,.82,-r.y)*A*.6;vec3 wo=c*.6*WS.w;if(WS.x>.001)wo+=W1(r)*WS.x;if(WS.y>.001)wo+=W2(r)*WS.y;if(WS.z>.001)wo+=W3(r)*WS.z;return mix(c,c*.25+wo*1.25,Wt);}
+vec3 rf(vec3 rd,vec3 n,float e){vec3 q=refract(rd,n,e);return dot(q,q)<.001?reflect(rd,n):normalize(q);}
+vec3 nrm(vec3 p){vec2 e=vec2(.003,-.003);return normalize(e.xyy*map(p+e.xyy)+e.yyx*map(p+e.yyx)+e.yxy*map(p+e.yxy)+e.xxx*map(p+e.xxx));}
+void main(){
+ vec2 uv=(gl_FragCoord.xy-.5*R)/R.y;
+ vec3 ro=vec3(0.,0.,Z),rd=normalize(vec3(uv,-1.7));
+ float t=0.,md=1e3;bool hit=false;
+ for(int i=0;i<80;i++){float d=map(ro+rd*t);md=min(md,d);if(d<.0025){hit=true;break;}t+=d*.9;if(t>14.)break;}
+ vec3 col=vec3(.018,.02,.05)+.025*mix(A,B,.5+.5*sin(uv.x*1.5+T*.12+sin(uv.y*2.5+T*.1)*1.2));
+ col+=exp(-md*3.)*mix(A,B,.35)*.55;
+ vec2 g=uv*70.+vec2(0.,T*.2),id=floor(g);float hs=fract(sin(dot(id,vec2(41.3,289.1)))*43758.5);
+ col+=step(.985,hs)*smoothstep(.45,0.,length(fract(g)-.5))*(.4+.6*sin(T*2.+hs*60.))*.5;
+ if(hit){
+  vec3 p=ro+rd*t,n=nrm(p);float nv=max(dot(n,-rd),0.);
+  vec3 r=reflect(rd,n);
+  vec3 refl=vec3(E(normalize(r+n*.13)).r,E(r).g,E(normalize(r-n*.13)).b);
+  vec3 film=mix(A,B,.5+.5*sin(nv*8.+n.y*2.+T*.15));
+  float fr=pow(1.-nv,3.);
+  col=refl*(.72+.5*fr)+film*(.3+fr)*1.15+A*.05;
+  if(OD>.001){
+   float scale=R.x/R.y<.8?1.5:.92;
+   vec3 local=cityRotation((p-vec3(O+vec2(0.,sin(T*.8)*.05),0.))*scale);
+   // Refraction gives the miniature parallax and bends the streets at the rounded edges.
+   vec3 transmitted=cityRotation(rf(rd,n,.98));
+   vec3 inside=vec3(.015,.05,.05);
+   vec3 ln=cityRotation(n),al=abs(ln);bool top=al.y>al.x&&al.y>al.z;vec2 fq;
+   if(top)fq=vec2(local.x,-local.z);else if(al.z>al.x)fq=vec2(local.x*sign(ln.z),local.y);else fq=vec2(-local.z*sign(ln.x),local.y);
+   fq*=1.2;
+   float fm=smoothstep(.62,.55,max(abs(fq.x),abs(fq.y)))*(top?step(0.,ln.y):1.);
+   inside=mix(inside,(top?oMap(fq):oCard(fq))*1.25,fm);
+   vec3 curved=normalize(n+normalize(p-vec3(O,0.))*.24);
+   vec3 reflection=reflect(rd,curved);
+   vec3 studio=vec3(E(normalize(reflection+curved*.13)).r,E(reflection).g,E(normalize(reflection-curved*.13)).b);
+   vec3 glass=inside*(.9-.35*fr)+studio*(.30+1.0*fr);
+   // The same moving interference colors and split reflections as Tortma and Flowlify.
+   vec3 interference=mix(A,B,.5+.5*sin(nv*8.+n.y*2.+T*.15));
+   glass+=interference*(.15+fr)*.8;
+   glass+=A*pow(1.-nv,2.)*.7+B*pow(1.-nv,5.)*.45;
+   col=mix(col,glass,OD);
+  }
+  float ao=1.-3.*max(0.,.16-map(p+n*.16));col*=ao*(.6+.4*smoothstep(-1.2,1.2,n.y+.3));}
+ col*=1.-.4*dot(uv,uv);
+ col+=(fract(sin(dot(gl_FragCoord.xy+fract(T)*100.,vec2(12.9898,78.233)))*43758.5453)-.5)*.07;
+ gl_FragColor=vec4(col,1.);}`;
+const sh=(t,src)=>{const o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw gl.getShaderInfoLog(o);return o};
+const fsx=`precision mediump float;
+uniform sampler2D tex;uniform vec2 R2;varying vec2 vuv;
+void main(){
+ vec2 px=1./R2;
+ vec3 luma=vec3(.299,.587,.114);
+ vec3 rgbNW=texture2D(tex,vuv+vec2(-1.,-1.)*px).rgb;
+ vec3 rgbNE=texture2D(tex,vuv+vec2(1.,-1.)*px).rgb;
+ vec3 rgbSW=texture2D(tex,vuv+vec2(-1.,1.)*px).rgb;
+ vec3 rgbSE=texture2D(tex,vuv+vec2(1.,1.)*px).rgb;
+ vec3 rgbM=texture2D(tex,vuv).rgb;
+ float lNW=dot(rgbNW,luma),lNE=dot(rgbNE,luma),lSW=dot(rgbSW,luma),lSE=dot(rgbSE,luma),lM=dot(rgbM,luma);
+ float lMin=min(lM,min(min(lNW,lNE),min(lSW,lSE)));
+ float lMax=max(lM,max(max(lNW,lNE),max(lSW,lSE)));
+ vec2 dir=vec2(-((lNW+lNE)-(lSW+lSE)),((lNW+lSW)-(lNE+lSE)));
+ float dirReduce=max((lNW+lNE+lSW+lSE)*.03125,.0078125);
+ float rcpDirMin=1./(min(abs(dir.x),abs(dir.y))+dirReduce);
+ dir=clamp(dir*rcpDirMin,-8.,8.)*px;
+ vec3 rgbA=.5*(texture2D(tex,vuv+dir*(1./3.-.5)).rgb+texture2D(tex,vuv+dir*(2./3.-.5)).rgb);
+ vec3 rgbB=rgbA*.5+.25*(texture2D(tex,vuv+dir*-.5).rgb+texture2D(tex,vuv+dir*.5).rgb);
+ float lB=dot(rgbB,luma);
+ gl_FragColor=vec4((lB<lMin||lB>lMax)?rgbA:rgbB,1.);}`;
+const vsx='attribute vec2 p;varying vec2 vuv;void main(){vuv=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);gl.useProgram(pr);
+const pr2=gl.createProgram();gl.attachShader(pr2,sh(gl.VERTEX_SHADER,vsx));gl.attachShader(pr2,sh(gl.FRAGMENT_SHADER,fsx));gl.linkProgram(pr2);
+gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+const lp=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+const lp2=gl.getAttribLocation(pr2,'p');
+const U=n=>gl.getUniformLocation(pr,n);const u={R:U('R'),O:U('O'),M:U('M'),T:U('T'),K:U('K'),Z:U('Z'),H:U('H'),V:U('V'),Wt:U('Wt'),OW:U('OW'),FW:U('FW'),NW:U('NW'),WS:U('WS'),MI:U('MI'),OD:U('OD'),UI:U('UI'),SH:U('SH'),A:U('A'),B:U('B')};
+const U2=gl.getUniformLocation(pr2,'tex'),R2=gl.getUniformLocation(pr2,'R2');
+let fbo,tex;
+const mkfbo=()=>{if(tex){gl.deleteTexture(tex);gl.deleteFramebuffer(fbo)}tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,cv.width,cv.height,0,gl.RGBA,gl.UNSIGNED_BYTE,null);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);fbo=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);gl.bindFramebuffer(gl.FRAMEBUFFER,null)};
+const size=()=>{let k=Math.min(devicePixelRatio,2)*(mob()?.75:1);const bud=3e6*(mob()?.45:1);while(k>.5&&innerWidth*k*innerHeight*k>bud)k*=.85;cv.width=innerWidth*k|0;cv.height=innerHeight*k|0;mkfbo();gl.viewport(0,0,cv.width,cv.height)};
+addEventListener('resize',size);size();
+let vel=0,ly=0,wt=0,ow=0,mi=0,od=0,fw=0,nw=0,ws=[1,0,0,0],t0=performance.now();
+// Oydin search UI is drawn with real text on a canvas and sampled by the shader on the cube faces.
+const uiCv=document.createElement('canvas');uiCv.width=uiCv.height=512;const ux=uiCv.getContext('2d');
+const uiTex=gl.createTexture();gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,uiTex);
+[[gl.TEXTURE_MIN_FILTER,gl.LINEAR],[gl.TEXTURE_MAG_FILTER,gl.LINEAR],[gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE],[gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE]].forEach(a=>gl.texParameteri(gl.TEXTURE_2D,a[0],a[1]));
+gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,uiCv);gl.activeTexture(gl.TEXTURE0);
+// Pin positions match the map in the shader. Shop names are illustrative placeholders.
+const NEED=[
+{q:'kalit yasash',cat:'Xizmatlar',pins:[[.3,-.3],[-.3,.3],[.6,.3]],names:['Kalitsoz Rustam','Tez kalit','Qulf va kalit'],open:[1,1,0]},
+{q:'soat ta’mirlash',cat:'Xizmatlar',pins:[[-.3,0],[.3,.3],[-.6,.6]],names:['Soatsoz Akmal','Soat ustaxona','Vaqt servis'],open:[1,1,0]},
+{q:'poyabzal ta’miri',cat:'Xizmatlar',pins:[[0,0],[-.6,-.3],[.6,.3]],names:['Etikdo‘z Karim','Poyabzal ustasi','Tez ta’mir'],open:[1,0,1]},
+{q:'bandaj',cat:'Dorixona',pins:[[-.3,-.6],[.6,0],[-.3,.6]],names:['Dorixona №3','Sog‘lom apteka','Shifo apteka'],open:[1,1,1]}];
+const FONT='"Bricolage Grotesque","Onest",system-ui,sans-serif',GOLD='#ffb04a',GREEN='#4dff80',cl=v=>Math.max(0,Math.min(1,v));
+const rrect=(c,x,y,w,h,r)=>{c.beginPath();c.roundRect?c.roundRect(x,y,w,h,r):c.rect(x,y,w,h)};
+const uiIcon=(c,k,x,y,z)=>{c.save();c.translate(x,y);c.scale(z,z);c.lineWidth=.16;c.lineCap='round';c.lineJoin='round';c.beginPath();
+ if(k===0){c.arc(-.4,0,.3,0,6.3);c.moveTo(-.1,0);c.lineTo(.6,0);c.moveTo(.4,0);c.lineTo(.4,.28);c.moveTo(.6,0);c.lineTo(.6,.22)}
+ else if(k===1){c.arc(0,0,.55,0,6.3);c.moveTo(0,0);c.lineTo(0,-.3);c.moveTo(0,0);c.lineTo(.22,.08)}
+ else if(k===2){c.moveTo(-.3,-.6);c.lineTo(-.3,.2);c.lineTo(.6,.2);c.lineTo(.6,.55);c.lineTo(-.55,.55);c.lineTo(-.55,.2)}
+ else{c.moveTo(-.5,0);c.lineTo(.5,0);c.moveTo(0,-.5);c.lineTo(0,.5)}
+ c.stroke();c.restore()};
+const PAL=[['#e8554e','#f5f3ee','#1c3d4a'],['#3aa8a0','#f5f3ee','#4a2c1a'],['#f0b429','#2a2a2a','#233b5c'],['#7a5af8','#f5f3ee','#2d4a3a'],['#e8554e','#ffd9a0','#233b5c'],['#2bb673','#f5f3ee','#4a2033'],['#f08a29','#f5f3ee','#1c3d4a'],['#4aa3ff','#f5f3ee','#4a3a1a'],['#d94f8a','#f5f3ee','#1c4a3a'],['#c9a227','#2a2a2a','#20404a'],['#3b82f6','#f5f3ee','#4a2c1a'],['#e0603c','#f5f3ee','#1c3d4a']];
+// Each shop gets its own storefront: palette, awning style and door side differ.
+function shopArt(c,x,y,s,id,k){
+ const P=PAL[id%12],st=id%3,dl=id%2;
+ c.save();rrect(c,x,y,s,s,14);c.clip();
+ c.fillStyle=P[2];c.fillRect(x,y,s,s);
+ c.fillStyle='#0a1f20';c.fillRect(x+6,y+32,s-12,s-38);
+ c.fillStyle='rgba(255,200,120,.18)';c.fillRect(x+6,y+32,s-12,s-38);
+ if(st===0){for(let j=0;j<8;j++){c.fillStyle=j%2?P[1]:P[0];c.fillRect(x+j*s/8,y,s/8+1,18)}}
+ else if(st===1){c.fillStyle=P[0];c.fillRect(x,y,s,10);for(let j=0;j<4;j++){c.fillStyle=j%2?P[1]:P[0];c.beginPath();c.arc(x+s/8+j*s/4,y+10,s/8,0,3.1416);c.fill()}}
+ else{c.fillStyle=P[0];c.fillRect(x,y,s,16);c.fillStyle=P[1];c.fillRect(x+10,y+5,s-20,6)}
+ c.fillStyle=P[0];c.fillRect(dl?x+10:x+s-24,y+38,14,s-44);
+ c.strokeStyle=P[1];uiIcon(c,k,dl?x+s-24:x+24,y+48,14);
+ c.restore()}
+if(document.fonts)['500 28px "Bricolage Grotesque"','600 22px "Onest"','400 17px "Onest"'].forEach(f=>document.fonts.load(f,'АаAa'));
+function drawUI(T){
+ const c=ux,ph=(T/8)%1,k=Math.floor(T/8)%4,N=NEED[k],Q=LX.ui.q[k],U=LX.ui;
+ c.fillStyle='#061617';c.fillRect(0,0,512,512);c.textBaseline='middle';c.textAlign='left';
+ c.fillStyle='#123a3b';rrect(c,56,56,400,64,32);c.fill();
+ c.strokeStyle=GOLD;c.lineWidth=4;c.lineCap='round';c.beginPath();c.arc(94,86,11,0,6.3);c.moveTo(102,94);c.lineTo(112,104);c.stroke();
+ const n=Math.floor(cl((ph-.05)/.22)*Q.length+.001),txt=Q.slice(0,n);
+ c.font='500 28px '+FONT;
+ if(n===0){c.fillStyle='rgba(245,243,238,.4)';c.fillText(U.ph,130,89)}else{c.fillStyle='#f5f3ee';c.fillText(txt,130,89)}
+ if(Math.floor(T*2.2)%2===0&&ph<.7){c.fillStyle=GOLD;c.fillRect(132+(n?c.measureText(txt).width:0),70,3,38)}
+ const sel=cl((ph-.5)/.08);
+ for(let i=0;i<3;i++){
+  const a=cl((ph-(.14+.07*i))/.08)*(1-(i?.5*sel:0)),y=148+i*104,pin=N.pins[i],m=Math.round(Math.hypot(pin[0],pin[1]+.3)*40)*10,op=N.open[i];
+  if(a<=0)continue;c.globalAlpha=a;
+  c.fillStyle=i?'#0e2b2c':'#143a35';rrect(c,56,y,400,88,22);c.fill();
+  if(!i){c.strokeStyle='rgba(255,176,74,'+sel+')';c.lineWidth=3;rrect(c,57,y+1,398,86,21);c.stroke()}
+  shopArt(c,70,y+12,64,k*3+i,k);
+  c.fillStyle='#f5f3ee';c.font='600 22px '+FONT;const nm=U.names[k][i],nw=c.measureText(nm).width;if(nw>205)c.font='600 '+(22*205/nw)+'px '+FONT;c.fillText(nm,148,y+31);
+  c.fillStyle=op?GREEN:'#ff6b5e';c.beginPath();c.arc(153,y+62,5,0,6.3);c.fill();
+  c.font='400 17px '+FONT;c.fillStyle='rgba(245,243,238,.7)';c.fillText(U.cat[k<3?0:1]+' · '+(op?U.open:U.closed),166,y+62);
+  c.textAlign='right';c.font='700 26px '+FONT;c.fillStyle=i?'#f5f3ee':GOLD;c.fillText(m+' '+U.m,440,y+32);
+  c.font='400 16px '+FONT;c.fillStyle='rgba(245,243,238,.6)';c.fillText(Math.ceil(m/80)+' '+U.min,440,y+62);c.textAlign='left';
+ }
+ c.globalAlpha=1;c.fillStyle='rgba(6,22,23,'+cl((ph-.92)/.08)+')';c.fillRect(0,0,512,512)}
+function uploadUI(T){drawUI(T);gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,uiTex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,uiCv);gl.activeTexture(gl.TEXTURE0)}
+const fine=matchMedia('(hover:hover)').matches;
+// Touch devices select the project nearest the middle of the viewport.
+const projectRows=Array.from(list.children);
+const activeProject=()=>{
+ if(hov>=0)return hov;
+ if(fine)return 0;
+ let closest=0,distance=Infinity;
+ projectRows.forEach((row,i)=>{const r=row.getBoundingClientRect(),d=Math.abs((r.top+r.bottom)*.5-innerHeight*.5);if(d<distance){distance=d;closest=i}});
+ return closest;
+};
+const sec=id=>{const r=$(id).getBoundingClientRect();return r.top<innerHeight*.5&&r.bottom>innerHeight*.5};
+(function f(now){
+ let tg=HERO;
+ if(sec('work'))tg=PRJ[activeProject()];else if(sec('path'))tg=PATH;else if(sec('contact'))tg=CON;
+ for(let i=0;i<14;i++)s[i]+=(tg[i]-s[i])*(rm?1:.06);
+ wt+=((tg===PRJ[0]||tg===PRJ[1]||tg===PRJ[2]||tg===PRJ[3]?1:0)-wt)*(rm?1:.05);fw+=((tg===PRJ[2]?1:0)-fw)*(rm?1:.06);nw+=((tg===PRJ[3]?1:0)-nw)*(rm?1:.06);const wsT=tg===PRJ[0]?[1,0,0,0]:tg===PRJ[2]?[0,1,0,0]:tg===PRJ[3]?[0,0,1,0]:[0,0,0,1];for(let z=0;z<4;z++)ws[z]+=(wsT[z]-ws[z])*(rm?1:.06);
+ ow+=((tg===PRJ[1]?1:tg===PRJ[3]?2:0)-ow)*(rm?1:.06);
+ od+=((tg===PRJ[1]?1:0)-od)*(rm?1:.06);
+ mi+=((fine?(tg===HERO?.9:tg===PATH||tg===CON?.3:.6):0)-mi)*(rm?1:.05);
+ vel+=(Math.min(Math.abs(scrollY-ly)/50,1)-vel)*.1;ly=scrollY;const t=(now-t0)/1000*(rm?.15:1);
+ gl.useProgram(pr);
+ gl.uniform1i(u.UI,1);if(od>.02)uploadUI(rm&&tg===PRJ[1]?5:t);gl.uniform2f(u.R,cv.width,cv.height);gl.uniform2f(u.O,s[0],s[1]);
+ gl.uniform2f(u.M,((px-innerWidth/2)/innerHeight)*s[3]/1.7,((innerHeight/2-py)/innerHeight)*s[3]/1.7);gl.uniform1f(u.MI,mi);
+ gl.uniform1f(u.OD,od);gl.uniform1f(u.T,rm&&tg===PRJ[1]?5:t);gl.uniform1f(u.K,s[2]);gl.uniform1f(u.Z,s[3]);gl.uniform3f(u.SH,s[4],s[5],s[6]);gl.uniform1f(u.H,s[7]);gl.uniform1f(u.V,vel);gl.uniform1f(u.Wt,wt);gl.uniform1f(u.OW,ow);gl.uniform1f(u.FW,fw);gl.uniform1f(u.NW,nw);gl.uniform4f(u.WS,ws[0],ws[1],ws[2],ws[3]);
+ gl.uniform3f(u.A,s[8],s[9],s[10]);gl.uniform3f(u.B,s[11],s[12],s[13]);
+ gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+ gl.drawArrays(gl.TRIANGLES,0,3);
+ gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.useProgram(pr2);gl.enableVertexAttribArray(lp2);gl.vertexAttribPointer(lp2,2,gl.FLOAT,false,0,0);
+ gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(U2,0);gl.uniform2f(R2,cv.width,cv.height);
+ gl.drawArrays(gl.TRIANGLES,0,3);
+ cx+=(px-cx)*.18;cy+=(py-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px)';
+ tip.style.transform='translate('+Math.min(px+24,innerWidth-290)+'px,'+(py+24)+'px)';
+ requestAnimationFrame(f)})(t0);
+}catch(e){console.warn('WebGL unavailable',e)}
+const updClk=()=>{const w=$('work'),a=$('clk').getBoundingClientRect(),b=document.querySelector('#hero p').getBoundingClientRect();const over=a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom;$('clk').style.opacity=over?0:(scrollY>w.offsetTop-innerHeight*.5&&scrollY<w.offsetTop+w.offsetHeight-innerHeight*.5?.35:.75)};addEventListener('scroll',updClk,{passive:true});addEventListener('resize',updClk);updClk();
+</script>
+</body>
+</html>
