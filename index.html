@@ -205,7 +205,7 @@ try{
 const cv=$('gl'),gl=cv.getContext('webgl');
 const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
 const fs=`precision highp float;
-uniform vec2 R,O,M;uniform float T,K,Z,H,V,Wt,OW,MI,OD,FW,NW,PW;uniform vec4 WS;uniform vec3 SH,A,B;uniform sampler2D UI,ENV;
+uniform vec2 R,O,M;uniform float T,K,Z,H,V,Wt,OW,MI,OD,FW,NW,PW;uniform vec4 WS;uniform vec3 SH,A,B;uniform sampler2D UI,ENV;uniform mat3 CITY;uniform vec3 BLOBS[5];uniform vec3 FLOW;uniform vec2 CITYDETAIL;
 mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
 float smin(float a,float b,float k){float h=max(k-abs(a-b),0.)/k;return min(a,b)-h*h*k*.25;}
 float dT(vec3 p){
@@ -221,16 +221,16 @@ float dT(vec3 p){
  d=smin(d,length(p-pb)-.24*smoothstep(.44,.54,ph)*(1.-smoothstep(.88,.97,ph)),.4);
  for(int i=0;i<3;i++){float fi=float(i);float land=(fi==k)?smoothstep(.82,.9,ph)*(1.-smoothstep(.93,1.,ph)):0.;d=smin(d,length(p-vec3(1.15,.85-fi*.85,0.))-.26-.16*land,.3);}
  return d;}
-vec3 cityRotation(vec3 p){p.xy*=rot(-.04+sin(T*.43)*.11+M.x*.06);p.yz*=rot(-.38+sin(T*.31)*.10-M.y*.08);p.xz*=rot(-.64+sin(T*.27)*.36+sin(T*.9)*.05+M.x*.18);return p;}
+vec3 cityRotation(vec3 p){return CITY*p;}
 // Flowlify: a voice orb. Ripples run in from the caller side, then from the agent side, then a booking pulse. 8 s loop.
 float dO(vec3 p){
- float ph=fract(T/8.);
- float ring=smoothstep(0.,.04,ph)*(1.-smoothstep(.18,.22,ph)),cs=smoothstep(.2,.26,ph)*(1.-smoothstep(.48,.52,ph)),ag=smoothstep(.5,.56,ph)*(1.-smoothstep(.72,.76,ph)),bk=smoothstep(.76,.8,ph)*(1.-smoothstep(.88,.96,ph));
- vec3 n=normalize(p+1e-4);
- float a1=acos(clamp(dot(n,vec3(-1.,0.,0.)),-1.,1.)),a2=acos(clamp(dot(n,vec3(1.,0.,0.)),-1.,1.));
- float w=cs*.075*sin(a1*9.-T*13.)*exp(-a1*.55)*(.6+.4*sin(T*8.))+ag*.07*sin(a2*8.-T*11.)*exp(-a2*.55)*(.6+.4*sin(T*7.));
- w+=ring*.04*sin(T*24.)+.02*sin(T*1.5)+.08*bk;
- return length(p)-(.95+w);}
+ float w=0.;
+ if(FLOW.x>0.||FLOW.y>0.){
+  vec3 n=normalize(p+1e-4);
+  if(FLOW.x>0.){float a=acos(clamp(-n.x,-1.,1.));w+=FLOW.x*sin(a*9.-T*13.)*exp(-a*.55);}
+  if(FLOW.y>0.){float a=acos(clamp(n.x,-1.,1.));w+=FLOW.y*sin(a*8.-T*11.)*exp(-a*.55);}
+ }
+ return length(p)-(FLOW.z+w);}
 // NowShipping: a live room. The ring is the ~90 minute window and fills over the loop. People orbit far while open, then move in and swell as they start shipping.
 float dN(vec3 p){
  float ph=fract(T/8.),cl2=smoothstep(.9,.98,ph),f=clamp(ph/.9,0.,1.),grow=smoothstep(0.,.06,ph)*(1.-cl2);
@@ -254,20 +254,20 @@ float dP(vec3 p){
   d=smin(d,length(p-c)-(.24+.035*f),.42);}
  return d;}
 float map(vec3 p0){
- vec3 p=p0;p.xy-=O;p.y/=1.+V*.9*(1.-OD);p.x+=sin(p.y*2.+T*3.)*V*.15*(1.-OD);p.y-=sin(T*.8)*.05*OD;float d=1e5;
+ vec3 p=p0;p.xy-=O;p.y/=1.+V*.9*(1.-OD);p.x+=sin(p.y*2.+T*3.)*V*.15*(1.-OD);p.y-=CITYDETAIL.x*OD;float d=1e5;
  vec2 dm=p.xy-M;float mf=MI*exp(-dot(dm,dm)*2.5);p.xy+=dm*mf*.3*(1.-OD);
  // Settled scenes need only their own distance field, including normal/AO samples.
  if(FW>=.999&&SH.x>=.999)return dO(p);
- if(OD>=.999&&SH.z>=.999){float bs=R.x/R.y<.8?1.5:.92;vec3 b=cityRotation(p*bs);float corner=.30+.014*sin(T*.8);vec3 w=abs(b)-vec3(.8-corner);return (length(max(w,0.))+min(max(w.x,max(w.y,w.z)),0.)-corner)/bs;}
+ if(OD>=.999&&SH.z>=.999){float bs=R.x/R.y<.8?1.5:.92;vec3 b=cityRotation(p*bs);float corner=CITYDETAIL.y;vec3 w=abs(b)-vec3(.8-corner);return (length(max(w,0.))+min(max(w.x,max(w.y,w.z)),0.)-corner)/bs;}
 
  if(SH.x>0.){for(int i=0;i<5;i++){float f=float(i);
-  vec3 c=vec3(sin(T*.5+f*1.7)*1.5,cos(T*.4+f*2.3)*1.1,sin(T*.6+f*3.1)*.8)*K*(.55+K);
+  vec3 c=BLOBS[i];
   d=smin(d,length(p-c)-(.58-.05*f),.4);}}
  float tor=0.;if(SH.y>0.){vec3 q=p;q.xz*=rot(T*.3);q.xy*=rot(.9+sin(T*.2)*.3);
  tor=length(vec2(length(q.xz)-1.3,q.y))-.42;}
  float bs=mix(1.55,R.x/R.y<.8?1.5:.92,OD);
  float rb=0.;if(SH.z>0.){vec3 b=p*bs;vec3 oldBox=b;oldBox.xy*=rot(T*.18);oldBox.yz*=rot(.35+sin(T*.2)*.18);b=mix(oldBox,cityRotation(b),OD);
- float corner=mix(.25,.30+.014*sin(T*.8),OD);
+ float corner=mix(.25,CITYDETAIL.y,OD);
  vec3 w=abs(b)-vec3(.8-corner);rb=length(max(w,0.))+min(max(w.x,max(w.y,w.z)),0.)-corner;
  float pk=(mod(T*.5,3.)-1.5)*1.15;
  rb=mix(smin(rb,length(b-vec3(pk,0.,0.))-.12,.2),rb,OD);
@@ -464,6 +464,18 @@ void main(){
  vec2 uv=(gl_FragCoord.xy-.5*R)/R.y;
  vec3 ro=vec3(0.,0.,Z),rd=normalize(vec3(uv,-1.7));
  float t=0.,md=1e3;bool hit=false;
+ // Start at the cube's enclosing box when the ray intersects it. The rounded
+ // surface is still solved by the same high-precision marcher; missed rays
+ // retain the original glow calculation.
+ if(OD>=.999&&SH.z>=.999){
+  float scale=R.x/R.y<.8?1.5:.92;
+  vec3 origin=cityRotation((ro-vec3(O.x,O.y+CITYDETAIL.x,0.))*scale),direction=cityRotation(rd*scale);
+  vec3 safeDirection=vec3(direction.x==0.?1e-8:direction.x,direction.y==0.?1e-8:direction.y,direction.z==0.?1e-8:direction.z);
+  vec3 lo=(-vec3(.8)-origin)/safeDirection,hi=(vec3(.8)-origin)/safeDirection;
+  vec3 nearV=min(lo,hi),farV=max(lo,hi);float nearT=max(nearV.x,max(nearV.y,nearV.z)),farT=min(farV.x,min(farV.y,farV.z));
+  if(farT>=max(nearT,0.))t=max(0.,nearT-.001);
+ }
+
  for(int i=0;i<80;i++){float d=map(ro+rd*t);md=min(md,d);if(d<.0025){hit=true;break;}t+=d*.9;if(t>14.)break;}
  vec3 col=vec3(.018,.02,.05)+.025*mix(A,B,.5+.5*sin(uv.x*1.5+T*.12+sin(uv.y*2.5+T*.1)*1.2));
  col+=exp(-md*3.)*mix(A,B,.35)*.55;
@@ -478,7 +490,7 @@ void main(){
   col=refl*(.72+.5*fr)+film*(.3+fr)*1.15+A*.05;}
   if(OD>.001){
    float scale=R.x/R.y<.8?1.5:.92;
-   vec3 local=cityRotation((p-vec3(O+vec2(0.,sin(T*.8)*.05),0.))*scale);
+   vec3 local=cityRotation((p-vec3(O+vec2(0.,CITYDETAIL.x),0.))*scale);
    // Refraction gives the miniature parallax and bends the streets at the rounded edges.
    vec3 transmitted=cityRotation(rf(rd,n,.98));
    vec3 inside=vec3(.015,.05,.05);
@@ -543,7 +555,7 @@ function updateEnvironment(now,t){if(wt*(ws[0]+ws[1]+ws[2])<.001){lastEnvironmen
  gl.uniform1f(envUniforms.T,t);gl.uniform3f(envUniforms.A,s[8],s[9],s[10]);gl.uniform3f(envUniforms.B,s[11],s[12],s[13]);gl.uniform4f(envUniforms.WS,ws[0],ws[1],ws[2],ws[3]);gl.uniform1f(envUniforms.Wt,wt);gl.drawArrays(gl.TRIANGLES,0,3);
  gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,cv.width,cv.height);
 }
-const U=n=>gl.getUniformLocation(pr,n);const u={R:U('R'),O:U('O'),M:U('M'),T:U('T'),K:U('K'),Z:U('Z'),H:U('H'),V:U('V'),Wt:U('Wt'),OW:U('OW'),FW:U('FW'),NW:U('NW'),PW:U('PW'),WS:U('WS'),MI:U('MI'),OD:U('OD'),UI:U('UI'),ENV:U('ENV'),SH:U('SH'),A:U('A'),B:U('B')};
+const U=n=>gl.getUniformLocation(pr,n);const u={R:U('R'),O:U('O'),M:U('M'),T:U('T'),K:U('K'),Z:U('Z'),H:U('H'),V:U('V'),Wt:U('Wt'),OW:U('OW'),FW:U('FW'),NW:U('NW'),PW:U('PW'),WS:U('WS'),MI:U('MI'),OD:U('OD'),UI:U('UI'),ENV:U('ENV'),CITY:U('CITY'),BLOBS:U('BLOBS[0]'),FLOW:U('FLOW'),CITYDETAIL:U('CITYDETAIL'),SH:U('SH'),A:U('A'),B:U('B')};
 const U2=gl.getUniformLocation(pr2,'tex'),R2=gl.getUniformLocation(pr2,'R2');
 let fbo,tex;
 const mkfbo=()=>{if(tex){gl.deleteTexture(tex);gl.deleteFramebuffer(fbo)}tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,cv.width,cv.height,0,gl.RGBA,gl.UNSIGNED_BYTE,null);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);fbo=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);gl.bindFramebuffer(gl.FRAMEBUFFER,null)};
@@ -620,12 +632,37 @@ const activeProject=()=>{
  return closest;
 };
 const sec=id=>{const r=$(id).getBoundingClientRect();return r.top<innerHeight*.5&&r.bottom>innerHeight*.5};
+// Scene constants are evaluated once per frame, not at every ray-march step.
+const cityMatrix=new Float32Array(9),blobPositions=new Float32Array(15);
+const smooth=(a,b,x)=>{const v=Math.max(0,Math.min(1,(x-a)/(b-a)));return v*v*(3-2*v)};
+function uploadSceneConstants(t,mx,my){
+ const angles=[-.04+Math.sin(t*.43)*.11+mx*.06,-.38+Math.sin(t*.31)*.10-my*.08,-.64+Math.sin(t*.27)*.36+Math.sin(t*.9)*.05+mx*.18];
+ const c=angles.map(Math.cos),sn=angles.map(Math.sin);
+ for(let i=0;i<3;i++){let x=i===0?1:0,y=i===1?1:0,z=i===2?1:0;[x,y]=[x*c[0]-y*sn[0],x*sn[0]+y*c[0]];[y,z]=[y*c[1]-z*sn[1],y*sn[1]+z*c[1]];[x,z]=[x*c[2]-z*sn[2],x*sn[2]+z*c[2]];cityMatrix.set([x,y,z],i*3);}
+ gl.uniformMatrix3fv(u.CITY,false,cityMatrix);gl.uniform2f(u.CITYDETAIL,Math.sin(t*.8)*.05,.30+.014*Math.sin(t*.8));
+ for(let i=0;i<5;i++){const k=s[2]*(.55+s[2]);blobPositions.set([Math.sin(t*.5+i*1.7)*1.5*k,Math.cos(t*.4+i*2.3)*1.1*k,Math.sin(t*.6+i*3.1)*.8*k],i*3)}gl.uniform3fv(u.BLOBS,blobPositions);
+ const ph=(t/8)%1,ring=smooth(0,.04,ph)*(1-smooth(.18,.22,ph)),cs=smooth(.2,.26,ph)*(1-smooth(.48,.52,ph)),ag=smooth(.5,.56,ph)*(1-smooth(.72,.76,ph)),bk=smooth(.76,.8,ph)*(1-smooth(.88,.96,ph));
+ gl.uniform3f(u.FLOW,cs*.075*(.6+.4*Math.sin(t*8)),ag*.07*(.6+.4*Math.sin(t*7)),.95+ring*.04*Math.sin(t*24)+.02*Math.sin(t*1.5)+.08*bk);
+}
 // Exponential easing preserves the original 60 Hz feel at any refresh rate.
 const blend=(rate,dt)=>rm?1:1-Math.pow(1-rate,dt/(1000/60));
 const approach=(value,target,rate,dt)=>{const next=value+(target-value)*blend(rate,dt);return Math.abs(next-target)<.001?target:next};
 let previous=0,lastUI=-Infinity,lastSignature='',raf=0;
 if(document.fonts)document.fonts.ready.then(()=>{lastUI=-Infinity;lastSignature=''});
+// Opt-in diagnostics: frame delivery, JS submission time, and asynchronous GPU timing.
+const profiling=new URLSearchParams(location.search).has('perf');
+const timer=profiling?gl.getExtension('EXT_disjoint_timer_query'):null;
+let gpuPending=null,gpuMs=null,frameSamples=[],cpuSamples=[],profileStart=0;
+const stats=profiling?document.body.appendChild(document.createElement('output')):null;
+if(stats){stats.id='render-stats';stats.style.cssText='position:fixed;bottom:12px;left:12px;z-index:100;background:#05060fee;color:white;padding:8px 12px;font:12px monospace;pointer-events:none';}
 function f(now){
+ const cpuStart=performance.now();
+ if(timer&&gpuPending&&timer.getQueryObjectEXT(gpuPending,timer.QUERY_RESULT_AVAILABLE_EXT)){
+  if(!gl.getParameter(timer.GPU_DISJOINT_EXT))gpuMs=timer.getQueryObjectEXT(gpuPending,timer.QUERY_RESULT_EXT)/1e6;
+  timer.deleteQueryEXT(gpuPending);gpuPending=null;
+ }
+ let gpuQuery=null;if(timer&&!gpuPending){gpuQuery=timer.createQueryEXT();timer.beginQueryEXT(timer.TIME_ELAPSED_EXT,gpuQuery);}
+
  const elapsed=previous?now-previous:1000/60,dt=Math.max(1,Math.min(elapsed,100));previous=now;
 
  let tg=HERO;
@@ -643,9 +680,10 @@ function f(now){
  cx+=(px-cx)*blend(.18,dt);cy+=(py-cy)*blend(.18,dt);cur.style.transform='translate('+cx+'px,'+cy+'px)';
  tip.style.transform='translate('+Math.min(px+24,innerWidth-290)+'px,'+(py+24)+'px)';
  const signature=rm?[...s,od,fw,nw,pw,wt,...ws,px,py,scrollY,cv.width,cv.height].join(','):'';
- if(rm&&signature===lastSignature){raf=requestAnimationFrame(f);return}lastSignature=signature;
+ if(rm&&signature===lastSignature){if(gpuQuery){timer.endQueryEXT(timer.TIME_ELAPSED_EXT);gpuPending=gpuQuery;}raf=requestAnimationFrame(f);return}lastSignature=signature;
  if(rm)lastEnvironment=-Infinity;updateEnvironment(now,t);
  gl.useProgram(pr);gl.uniform1i(u.ENV,2);
+ uploadSceneConstants(t,((px-innerWidth/2)/innerHeight)*s[3]/1.7,((innerHeight/2-py)/innerHeight)*s[3]/1.7);
  gl.uniform1i(u.UI,1);if(od>.02&&(rm||now-lastUI>=1000/24)){uploadUI(t);lastUI=now;}gl.uniform2f(u.R,cv.width,cv.height);gl.uniform2f(u.O,s[0],s[1]);
  gl.uniform2f(u.M,((px-innerWidth/2)/innerHeight)*s[3]/1.7,((innerHeight/2-py)/innerHeight)*s[3]/1.7);gl.uniform1f(u.MI,mi);
  gl.uniform1f(u.OD,od);gl.uniform1f(u.T,rm&&tg===PRJ[1]?5:t);gl.uniform1f(u.K,s[2]);gl.uniform1f(u.Z,s[3]);gl.uniform3f(u.SH,s[4],s[5],s[6]);gl.uniform1f(u.H,s[7]);gl.uniform1f(u.V,vel);gl.uniform1f(u.Wt,wt);gl.uniform1f(u.OW,ow);gl.uniform1f(u.FW,fw);gl.uniform1f(u.NW,nw);gl.uniform1f(u.PW,pw);gl.uniform4f(u.WS,ws[0],ws[1],ws[2],ws[3]);
@@ -655,6 +693,8 @@ function f(now){
  gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.useProgram(pr2);gl.enableVertexAttribArray(lp2);gl.vertexAttribPointer(lp2,2,gl.FLOAT,false,0,0);
  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(U2,0);gl.uniform2f(R2,cv.width,cv.height);
  gl.drawArrays(gl.TRIANGLES,0,3);
+ if(gpuQuery){timer.endQueryEXT(timer.TIME_ELAPSED_EXT);gpuPending=gpuQuery;}
+ if(profiling){frameSamples.push(elapsed);cpuSamples.push(performance.now()-cpuStart);if(now-profileStart>2000){const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;const ordered=frameSamples.slice().sort((a,b)=>a-b);const result={fps:+(1000/avg(frameSamples)).toFixed(1),p95:+ordered[Math.floor(ordered.length*.95)].toFixed(1),cpuMs:+avg(cpuSamples).toFixed(2),gpuMs:gpuMs===null?null:+gpuMs.toFixed(2),width:cv.width,height:cv.height,scene:tg===PRJ[1]?'Oydin':tg===PRJ[2]?'Flowlify':'Other'};stats.textContent=`${result.scene} · ${result.fps} FPS · p95 ${result.p95} ms · CPU ${result.cpuMs} ms · GPU ${result.gpuMs??'unavailable'} ms`;stats.dataset.metrics=JSON.stringify(result);frameSamples=[];cpuSamples=[];profileStart=now;}}
  raf=requestAnimationFrame(f)}
 // Reset elapsed time when resuming a suspended tab.
 document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);previous=0;if(!document.hidden)raf=requestAnimationFrame(f)});
