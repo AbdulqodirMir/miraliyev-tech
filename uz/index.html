@@ -527,9 +527,8 @@ const U=n=>gl.getUniformLocation(pr,n);const u={R:U('R'),O:U('O'),M:U('M'),T:U('
 const U2=gl.getUniformLocation(pr2,'tex'),R2=gl.getUniformLocation(pr2,'R2');
 let fbo,tex;
 const mkfbo=()=>{if(tex){gl.deleteTexture(tex);gl.deleteFramebuffer(fbo)}tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,cv.width,cv.height,0,gl.RGBA,gl.UNSIGNED_BYTE,null);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);fbo=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);gl.bindFramebuffer(gl.FRAMEBUFFER,null)};
-// Keep the expensive ray marcher below a pixel budget; adapt only after sustained slow frames.
-let quality=1;
-const size=()=>{const budget=(mob()?650000:1400000)*quality;const k=Math.min(devicePixelRatio,1.5,Math.sqrt(budget/(innerWidth*innerHeight)));const w=Math.max(1,Math.floor(innerWidth*k)),h=Math.max(1,Math.floor(innerHeight*k));if(cv.width===w&&cv.height===h)return;cv.width=w;cv.height=h;mkfbo();gl.viewport(0,0,w,h)};
+// Preserve crisp silhouettes on Retina displays; do not lower resolution during interaction.
+const size=()=>{const k=Math.min(devicePixelRatio,2);const w=Math.max(1,Math.round(innerWidth*k)),h=Math.max(1,Math.round(innerHeight*k));if(cv.width===w&&cv.height===h)return;cv.width=w;cv.height=h;mkfbo();gl.viewport(0,0,w,h)};
 addEventListener('resize',size);size();
 let vel=0,ly=0,wt=0,ow=0,mi=0,od=0,fw=0,nw=0,pw=0,ws=[1,0,0,0],t0=performance.now();
 // Oydin search UI is drawn with real text on a canvas and sampled by the shader on the cube faces.
@@ -604,11 +603,10 @@ const sec=id=>{const r=$(id).getBoundingClientRect();return r.top<innerHeight*.5
 // Exponential easing preserves the original 60 Hz feel at any refresh rate.
 const blend=(rate,dt)=>rm?1:1-Math.pow(1-rate,dt/(1000/60));
 const approach=(value,target,rate,dt)=>{const next=value+(target-value)*blend(rate,dt);return Math.abs(next-target)<.001?target:next};
-let previous=0,lastUI=-Infinity,lastSignature='',sampleTime=0,sampleFrames=0,raf=0;
+let previous=0,lastUI=-Infinity,lastSignature='',raf=0;
 if(document.fonts)document.fonts.ready.then(()=>{lastUI=-Infinity;lastSignature=''});
 function f(now){
  const elapsed=previous?now-previous:1000/60,dt=Math.max(1,Math.min(elapsed,100));previous=now;
- if(!rm){sampleTime+=elapsed;sampleFrames++;if(sampleTime>2500){if(sampleTime/sampleFrames>24&&quality>.45){quality=Math.max(.45,quality*.8);size()}sampleTime=0;sampleFrames=0}}
 
  let tg=HERO;
  if(sec('work'))tg=PRJ[activeProject()];else if(sec('path'))tg=PATH;else if(sec('contact'))tg=CON;
@@ -637,8 +635,8 @@ function f(now){
  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(U2,0);gl.uniform2f(R2,cv.width,cv.height);
  gl.drawArrays(gl.TRIANGLES,0,3);
  raf=requestAnimationFrame(f)}
-// Avoid a resume-time quality downgrade after the browser suspends a hidden tab.
-document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);previous=0;sampleTime=0;sampleFrames=0;if(!document.hidden)raf=requestAnimationFrame(f)});
+// Reset elapsed time when resuming a suspended tab.
+document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);previous=0;if(!document.hidden)raf=requestAnimationFrame(f)});
 raf=requestAnimationFrame(f);
 }catch(e){console.warn('WebGL unavailable',e)}
 const updClk=()=>{const w=$('work'),a=$('clk').getBoundingClientRect(),b=document.querySelector('#hero p').getBoundingClientRect();const over=a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom;$('clk').style.opacity=over?0:(scrollY>w.offsetTop-innerHeight*.5&&scrollY<w.offsetTop+w.offsetHeight-innerHeight*.5?.35:.75)};addEventListener('scroll',updClk,{passive:true});addEventListener('resize',updClk);updClk();
