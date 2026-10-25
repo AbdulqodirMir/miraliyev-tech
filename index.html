@@ -90,8 +90,8 @@ footer{overflow:hidden;padding:22px 0 calc(22px + env(safe-area-inset-bottom,0px
 .cur.big{width:56px;height:56px;margin:-28px 0 0 -28px}
 .cur.lbl{width:96px;height:96px;margin:-48px 0 0 -48px;display:grid;place-items:center;font-size:14px;font-weight:600;color:#000}
 @media(hover:none){.cur,.tip{display:none}.row{flex-wrap:wrap}.row em{display:block;width:100%}}
-@media(max-width:800px){.bd{display:none}#path{grid-template-columns:1fr}#path h2{position:static}header nav a{padding:.45em .8em}#clk{display:none}header{justify-content:flex-end}}
-@media(prefers-reduced-motion:reduce){.mq,.bd{animation:none}.ln span{animation:none;transform:none}html{scroll-behavior:auto}}
+@media(max-width:800px){.bd{display:none}#path{grid-template-columns:1fr}#path h2{position:static}header nav a{padding:.45em .8em}#clk{display:none}header{justify-content:flex-end;transition:transform .22s ease}header.nav-hidden{transform:translateY(-110%)}header nav.glass{background:rgba(18,16,38,.96)}}
+@media(prefers-reduced-motion:reduce){header{transition:none!important}.mq,.bd{animation:none}.ln span{animation:none;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -714,6 +714,10 @@ document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);prev
 raf=requestAnimationFrame(f);
 }catch(e){console.warn('WebGL unavailable',e)}
 const updClk=()=>{const w=$('work'),a=$('clk').getBoundingClientRect(),b=document.querySelector('#hero p').getBoundingClientRect();const over=a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom;$('clk').style.opacity=over?0:(scrollY>w.offsetTop-innerHeight*.5&&scrollY<w.offsetTop+w.offsetHeight-innerHeight*.5?.35:.75)};addEventListener('scroll',updClk,{passive:true});addEventListener('resize',updClk);updClk();
+</script>
+<script>
+/* Mobile navigation: hide on down-scroll, return on up-scroll. */
+(()=>{const header=document.querySelector('header'),mq=matchMedia('(max-width:800px)');const position=()=>Math.max(0,Math.min(scrollY,document.documentElement.scrollHeight-innerHeight));let anchor=position();const reset=()=>{anchor=position();header.classList.remove('nav-hidden')};addEventListener('scroll',()=>{const y=position();if(!mq.matches||y<24){reset();return}const delta=y-anchor;if(Math.abs(delta)<12)return;header.classList.toggle('nav-hidden',delta>0);anchor=y},{passive:true});header.addEventListener('focusin',reset);mq.addEventListener('change',reset)})();
 </script>
 </body>
 </html>
