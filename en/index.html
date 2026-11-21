@@ -137,7 +137,7 @@ desc4:['YouTube videolarini pleylistlarga ajratadi. Sudrab taşlang yoki AI har 
 open:'Oçiş',pathH:'Yöl',
 path:[['AI joriy etiş muhandisi','Flowlify','2026-yil iyul'],['Qidiruv sifati böyiça yetakçi','Yandex Crowd','2025-yil iyul–avgust'],['Bakalavr, kompyuter va axborot muhandisligi','Toşkentdagi Inha universiteti','2024–2028'],['Videograf','IQRO agentligi, Olmaliq','2024-yil iyul–avgust'],['Respublika xakatonida 1-örin','MohirFest22','Mukofot'],['Media jamoasi rahbari','Nurafşon prezident maktabi','2022–2023']],
 contact:'Mahsulot, jamoa yoki çiqarişga arziydigan ğoyangiz bormi? Menga yozing.',copy:'Emailni nusxalaş',copied:'Nusxalandi',
-marq:['AI mahsulot muhandisligi','Chrome va Firefox kengaytmalari','Ovozli AI joriy etiş','TypeScript va Next.js','Python va C++','Three.js va WebGL','Özbek, ingliz, rus tillari'],
+marq:['Chrome va Firefox kengaytmalari','Özbek, ingliz, rus tillari'],
 ui:{ph:'Nima kerak?',q:['kalit yasaş','soat ta’mirlaş','poyabzal ta’miri','bandaj'],cat:['Xizmatlar','Dorixona'],open:'Oçiq',closed:'Yopiq',m:'m',min:'daq',
 names:[['Kalitsoz Rustam','Tez kalit','Qulf va kalit'],['Soatsoz Akmal','Soat ustaxona','Vaqt servis'],['Etikdöz Karim','Poyabzal ustasi','Tez ta’mir'],['Dorixona №3','Soğlom apteka','Şifo apteka']]}},
 ru:{title:'Абдулкодир Миралиев — студент-основатель, Алмалык, Ташкентская область',desc:'Абдулкодир Миралиев — студент-основатель из Алмалыка. Создаёт продукты для Узбекистана и не только.',
@@ -148,7 +148,7 @@ desc4:['Раскладывает видео YouTube по плейлистам. �
 open:'Открыть',pathH:'Путь',
 path:[['Инженер по внедрению ИИ','Flowlify','Июль 2026'],['Ведущий по качеству поиска','Yandex Crowd','Июль–авг. 2025'],['Бакалавр, компьютерная и информационная инженерия','Университет Инха в Ташкенте','2024–2028'],['Видеограф','Агентство IQRO, Алмалык','Июль–авг. 2024'],['1 место на национальном хакатоне','MohirFest22','Награда'],['Руководитель медиакоманды','Нурафшанская президентская школа','2022–2023']],
 contact:'Есть продукт, команда или идея, которую стоит выпустить? Напишите мне.',copy:'Скопировать email',copied:'Скопировано',
-marq:['Разработка ИИ-продуктов','Расширения для Chrome и Firefox','Внедрение голосового ИИ','TypeScript и Next.js','Python и C++','Three.js и WebGL','Узбекский, английский, русский'],
+marq:['Расширения для Chrome и Firefox','Узбекский, английский, русский'],
 ui:{ph:'Что вам нужно?',q:['дубликат ключа','ремонт часов','ремонт обуви','бинт'],cat:['Услуги','Аптека'],open:'Открыто',closed:'Закрыто',m:'м',min:'мин',
 names:[['Ключи Рустам','Быстрые ключи','Замки и ключи'],['Часовщик Акмаль','Часовая мастерская','Время-сервис'],['Сапожник Карим','Мастер по обуви','Быстрый ремонт'],['Аптека №3','Аптека «Здоровье»','Аптека «Шифо»']]}},
 en:{title:'Abdulqodir Miraliyev — Student founder, Almalyk, Tashkent region',desc:'Abdulqodir Miraliyev is a student founder in Almalyk building products for Uzbekistan and beyond.',
@@ -159,7 +159,7 @@ desc4:['Sorts YouTube videos into playlists. Drag and drop, or let AI file each 
 open:'Open',pathH:'Path',
 path:[['Forward-Deployed AI Implementation Engineer','Flowlify','Jul 2026'],['Search Quality Improvement Lead','Yandex Crowd','Jul–Aug 2025'],['B.S. Computer &amp; Information Engineering','Inha University in Tashkent','2024–2028'],['Videographer','IQRO Agency, Almalyk','Jul–Aug 2024'],['1st place, national hackathon','MohirFest22','Award'],['Media Team Lead','Nurafshon Presidential School','2022–2023']],
 contact:'Got a product, a team or an idea worth shipping? Write to me.',copy:'Copy email',copied:'Copied',
-marq:['AI product engineering','Chrome and Firefox extensions','Voice AI deployment','TypeScript and Next.js','Python and C++','Three.js and WebGL','Uzbek, English, Russian'],
+marq:['Chrome and Firefox extensions','Uzbek, English, Russian'],
 ui:{ph:'What do you need?',q:['key cutting','watch repair','shoe repair','bandage'],cat:['Services','Pharmacy'],open:'Open',closed:'Closed',m:'m',min:'min',
 names:[['Rustam Locksmith','Quick Keys','Locks & Keys'],['Akmal Watchmaker','Watch Workshop','Vaqt Service'],['Karim Cobbler','Shoe Master','Quick Repair'],['Pharmacy No. 3','Healthy Pharmacy','Shifo Pharmacy']]}}};
 const LANG=detectLang(),LX=X[LANG],$$=(q)=>document.querySelector(q);
@@ -185,7 +185,7 @@ W.forEach((w,i)=>{const a=document.createElement('a');a.className='row';a.href=w
  a.onmouseenter=()=>{hov=i;tip.innerHTML='<b>'+w.n+'</b>'+w.d;tip.classList.add('on')};
  a.onmouseleave=()=>{hov=-1;tip.classList.remove('on')};a.onfocus=()=>{hov=i};a.onblur=()=>{hov=-1};list.appendChild(a)});
 const S=LX.marq;
-$('mq').innerHTML=[0,1].map(()=>'<div style="display:flex">'+S.map(s=>'<span>'+s+'</span>').join('')+'</div>').join('');
+$('mq').innerHTML=[0,1].map(()=>'<div style="display:flex">'+Array(4).fill(S).flat().map(s=>'<span>'+s+'</span>').join('')+'</div>').join('');
 const clk=()=>$('clk').textContent=LX.clk+' '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Tashkent',hour:'2-digit',minute:'2-digit'});clk();setInterval(clk,30000);
 
 let hov=-1,px=0,py=0,cx=0,cy=0;
